@@ -6,7 +6,11 @@
     <title>HealthConnect - AI-Powered SDoH Screening</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
         .chat-bubble {
             animation: slideIn 0.3s ease-out;
         }
@@ -47,7 +51,7 @@
         }
     </script>
 </head>
-<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen">
+<body class="bg-secondary dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen">
     <!-- Navigation -->
     <nav class="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50">
         <div class="max-w-md mx-auto px-4 py-3">
@@ -84,33 +88,33 @@
             </div>
 
             <div class="space-y-4 mb-8">
-                <div class="bg-accent dark:bg-gray-800 rounded-lg p-4 flex items-center space-x-3">
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 flex items-center space-x-3">
                     <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
                         <i data-feather="message-circle" class="w-5 h-5 text-white"></i>
                     </div>
                     <div>
                         <h3 class="font-semibold">Pre-Appointment Screening</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Comprehensive health check-in and medical history review</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Answer a few questions to prepare for your visit.</p>
                     </div>
                 </div>
                 
-                <div class="bg-accent dark:bg-gray-800 rounded-lg p-4 flex items-center space-x-3">
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 flex items-center space-x-3">
                     <div class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center">
-                        <i data-feather="users" class="w-5 h-5 text-white"></i>
+                        <i data-feather="map-pin" class="w-5 h-5 text-white"></i>
                     </div>
                     <div>
-                        <h3 class="font-semibold">Healthcare Resources</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Personalized local healthcare and support services</p>
+                        <h3 class="font-semibold">Local Health Insights</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Get personalized alerts based on your location.</p>
                     </div>
                 </div>
 
-                <div class="bg-accent dark:bg-gray-800 rounded-lg p-4 flex items-center space-x-3">
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 flex items-center space-x-3">
                     <div class="w-10 h-10 bg-amber-500 rounded-lg flex items-center justify-center">
                         <i data-feather="gift" class="w-5 h-5 text-white"></i>
                     </div>
                     <div>
                         <h3 class="font-semibold">Earn Rewards</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Get points for engaging with your health</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Get points for engaging with your health.</p>
                     </div>
                 </div>
             </div>
@@ -138,19 +142,19 @@
 
             <div class="space-y-6">
                 <div>
-                    <label class="block text-sm font-medium mb-2">First Name</label>
-                    <input type="text" id="firstName" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg text-base dark:bg-gray-800" placeholder="Enter your first name">
+                    <label for="firstName" class="block text-sm font-medium mb-2">Full Name</label>
+                    <input type="text" id="firstName" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg text-base bg-white dark:bg-gray-800" placeholder="Enter your first name">
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium mb-2">ZIP Code</label>
-                    <input type="text" id="zipCode" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg text-base dark:bg-gray-800" placeholder="12345">
-                    <p class="text-xs text-gray-500 mt-1">We use this to find local resources for you</p>
+                    <label for="zipCode" class="block text-sm font-medium mb-2">ZIP Code</label>
+                    <input type="text" id="zipCode" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg text-base bg-white dark:bg-gray-800" placeholder="e.g., 10001 for NYC">
+                    <p class="text-xs text-gray-500 mt-1">We use this to find local resources and health insights for you.</p>
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium mb-2">Preferred Language</label>
-                    <select class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg text-base dark:bg-gray-800">
+                    <label for="language" class="block text-sm font-medium mb-2">Preferred Language</label>
+                    <select id="language" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg text-base bg-white dark:bg-gray-800">
                         <option>English</option>
                         <option>Spanish</option>
                         <option>French</option>
@@ -158,7 +162,7 @@
                     </select>
                 </div>
 
-                <div class="bg-blue-50 dark:bg-blue-900 p-4 rounded-lg">
+                <div class="bg-blue-50 dark:bg-gray-800 p-4 rounded-lg">
                     <div class="flex items-start space-x-3">
                         <i data-feather="shield" class="w-5 h-5 text-blue-600 mt-0.5"></i>
                         <div class="text-sm">
@@ -211,22 +215,22 @@
 
                 <div class="space-y-4">
                     <label class="flex items-start space-x-3">
-                        <input type="checkbox" id="dataConsent" class="mt-1">
+                        <input type="checkbox" id="dataConsent" class="mt-1 form-checkbox rounded text-primary focus:ring-primary">
                         <span class="text-sm">I consent to the collection and use of my health screening data to provide personalized insights and local resource recommendations.</span>
                     </label>
 
                     <label class="flex items-start space-x-3">
-                        <input type="checkbox" id="rewardsConsent" class="mt-1">
+                        <input type="checkbox" id="rewardsConsent" class="mt-1 form-checkbox rounded text-primary focus:ring-primary">
                         <span class="text-sm">I agree to participate in the rewards program and receive community challenges and incentives.</span>
                     </label>
 
                     <label class="flex items-start space-x-3">
-                        <input type="checkbox" id="communicationConsent" class="mt-1">
+                        <input type="checkbox" id="communicationConsent" class="mt-1 form-checkbox rounded text-primary focus:ring-primary">
                         <span class="text-sm">I consent to receive health-related communications and local resource updates via the app.</span>
                     </label>
                 </div>
 
-                <button id="acceptConsent" class="w-full bg-primary text-white py-3 rounded-lg font-semibold disabled:bg-gray-400" disabled>
+                <button id="acceptConsent" class="w-full bg-primary text-white py-3 rounded-lg font-semibold disabled:bg-gray-400 dark:disabled:bg-gray-600" disabled>
                     Accept & Continue
                 </button>
             </div>
@@ -245,10 +249,10 @@
             </div>
 
             <div class="text-center mb-8">
-                <div class="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <div class="w-16 h-16 bg-green-100 dark:bg-green-800 rounded-full mx-auto mb-4 flex items-center justify-center">
                     <i data-feather="check" class="w-8 h-8 text-green-600"></i>
                 </div>
-                <h3 class="text-lg font-semibold mb-2">You're all set!</h3>
+                <h3 class="text-lg font-semibold mb-2">You're all set, <span id="welcomeName"></span>!</h3>
                 <p class="text-gray-600 dark:text-gray-400">Let's start with your health screening</p>
             </div>
 
@@ -267,16 +271,16 @@
         </div>
 
         <!-- Chatbot Interface -->
-        <div id="chatPage" class="hidden">
-            <div class="bg-primary text-white p-4">
+        <div id="chatPage" class="hidden flex flex-col h-screen-minus-nav">
+             <div class="bg-white dark:bg-gray-800 p-4 border-b dark:border-gray-700">
                 <div class="flex items-center justify-between">
                     <div class="flex items-center space-x-3">
                         <button id="backBtn">
                             <i data-feather="arrow-left" class="w-5 h-5"></i>
                         </button>
                         <div>
-                            <h2 class="font-semibold">AI Health Screening Assistant</h2>
-                            <p class="text-sm opacity-90">Pre-appointment check-in</p>
+                            <h2 class="font-semibold">AI Health Assistant</h2>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Pre-appointment check-in</p>
                         </div>
                     </div>
                     <div class="flex items-center space-x-1">
@@ -286,18 +290,18 @@
                 </div>
             </div>
 
-            <div id="chatMessages" class="p-4 space-y-4 pb-20 max-h-screen overflow-y-auto">
+            <div id="chatMessages" class="flex-1 p-4 space-y-4 overflow-y-auto">
                 <!-- Messages will be added here -->
             </div>
 
-            <div class="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 p-4">
+            <div class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 p-4">
                 <div class="max-w-md mx-auto">
-                    <div id="quickResponses" class="hidden mb-3 flex flex-wrap gap-2">
+                    <div id="quickResponses" class="hidden mb-3 flex flex-wrap gap-2 justify-center">
                         <!-- Quick response buttons will be added here -->
                     </div>
                     <div class="flex space-x-2">
-                        <input type="text" id="chatInput" class="flex-1 p-3 border border-gray-300 dark:border-gray-600 rounded-lg text-base dark:bg-gray-800" placeholder="Type your response...">
-                        <button id="sendBtn" class="bg-primary text-white p-3 rounded-lg">
+                        <input type="text" id="chatInput" class="flex-1 p-3 border border-gray-300 dark:border-gray-600 rounded-lg text-base bg-white dark:bg-gray-800" placeholder="Type your response..." disabled>
+                        <button id="sendBtn" class="bg-primary text-white p-3 rounded-lg disabled:bg-gray-400" disabled>
                             <i data-feather="send" class="w-5 h-5"></i>
                         </button>
                     </div>
@@ -308,44 +312,19 @@
         <!-- Dashboard -->
         <div id="dashboardPage" class="hidden p-6 pb-20">
             <div class="mb-6">
-                <h2 class="text-xl font-bold mb-2">Pre-Appointment Health Summary</h2>
-                <p class="text-gray-600 dark:text-gray-400">Personalized insights for your area: <span id="userZip" class="font-medium"></span></p>
+                <h2 class="text-xl font-bold mb-2">Health Summary</h2>
+                <p class="text-gray-600 dark:text-gray-400">Personalized insights for ZIP code: <span id="userZip" class="font-medium text-primary"></span></p>
             </div>
-
-            <!-- Risk Assessment -->
+            
+            <!-- Location Health Risks -->
             <div class="bg-white dark:bg-gray-800 rounded-lg p-4 mb-6 border border-gray-200 dark:border-gray-700">
-                <h3 class="font-semibold mb-3 flex items-center">
-                    <i data-feather="activity" class="w-5 h-5 mr-2 text-primary"></i>
-                    Health & Social Determinants Assessment
+                <h3 class="font-semibold mb-4 flex items-center">
+                    <i data-feather="map-pin" class="w-5 h-5 mr-2 text-primary"></i>
+                    Local Environmental Factors
                 </h3>
-                <div class="space-y-3">
-                    <div class="flex justify-between items-center">
-                        <span class="text-sm">Housing & Health Impact</span>
-                        <div class="flex items-center space-x-2">
-                            <div class="w-16 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                <div class="bg-green-500 h-2 rounded-full" style="width: 80%"></div>
-                            </div>
-                            <span class="text-xs text-green-600">Low Risk</span>
-                        </div>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <span class="text-sm">Nutrition & Food Access</span>
-                        <div class="flex items-center space-x-2">
-                            <div class="w-16 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                <div class="bg-yellow-500 h-2 rounded-full" style="width: 60%"></div>
-                            </div>
-                            <span class="text-xs text-yellow-600">Moderate</span>
-                        </div>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <span class="text-sm">Healthcare Access</span>
-                        <div class="flex items-center space-x-2">
-                            <div class="w-16 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                <div class="bg-red-500 h-2 rounded-full" style="width: 30%"></div>
-                            </div>
-                            <span class="text-xs text-red-600">High Risk</span>
-                        </div>
-                    </div>
+                <div id="healthRiskSummary" class="space-y-4">
+                    <!-- Summary will be populated here by JS -->
+                    <p class="text-sm text-gray-500">Complete the AI health screening to see personalized insights for your area.</p>
                 </div>
             </div>
 
@@ -356,93 +335,37 @@
                     <i data-feather="gift" class="w-5 h-5"></i>
                 </div>
                 <div class="flex justify-between items-center mb-2">
-                    <span class="text-sm">125 / 200 points</span>
+                    <span id="dashboardPoints" class="text-sm">125 / 200 points</span>
                     <span class="text-sm">Next reward: $10 grocery voucher</span>
                 </div>
                 <div class="bg-white bg-opacity-20 rounded-full h-2">
-                    <div class="bg-white h-2 rounded-full" style="width: 62.5%"></div>
+                    <div id="dashboardPointsBar" class="bg-white h-2 rounded-full" style="width: 62.5%"></div>
                 </div>
             </div>
 
             <!-- Quick Actions -->
             <div class="grid grid-cols-2 gap-4 mb-6">
-                <button id="resourcesBtn" class="bg-blue-50 dark:bg-blue-900 p-4 rounded-lg text-center">
-                    <i data-feather="map-pin" class="w-6 h-6 text-blue-600 mx-auto mb-2"></i>
+                <button id="resourcesBtn" class="bg-blue-50 dark:bg-gray-800 p-4 rounded-lg text-center">
+                    <i data-feather="globe" class="w-6 h-6 text-blue-600 mx-auto mb-2"></i>
                     <span class="text-sm font-medium">Local Resources</span>
                 </button>
-                <button id="rewardsBtn" class="bg-green-50 dark:bg-green-900 p-4 rounded-lg text-center">
+                <button id="rewardsBtn" class="bg-green-50 dark:bg-gray-800 p-4 rounded-lg text-center">
                     <i data-feather="award" class="w-6 h-6 text-green-600 mx-auto mb-2"></i>
                     <span class="text-sm font-medium">View Rewards</span>
                 </button>
             </div>
-
-            <!-- Community Challenges -->
-            <div class="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
-                <h3 class="font-semibold mb-3 flex items-center">
-                    <i data-feather="users" class="w-5 h-5 mr-2 text-primary"></i>
-                    Community Challenges
-                </h3>
-                <div class="space-y-3">
-                    <div class="flex items-center justify-between p-3 bg-green-50 dark:bg-green-900 rounded-lg">
-                        <div>
-                            <p class="font-medium text-sm">Daily Check-in</p>
-                            <p class="text-xs text-gray-600 dark:text-gray-400">Log your mood today</p>
-                        </div>
-                        <span class="bg-green-500 text-white px-2 py-1 rounded text-xs">+10 pts</span>
-                    </div>
-                    <div class="flex items-center justify-between p-3 bg-blue-50 dark:bg-blue-900 rounded-lg">
-                        <div>
-                            <p class="font-medium text-sm">Resource Explorer</p>
-                            <p class="text-xs text-gray-600 dark:text-gray-400">Visit 3 local resources</p>
-                        </div>
-                        <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">+25 pts</span>
-                    </div>
-                </div>
-            </div>
         </div>
 
-        <!-- Local Resources -->
+        <!-- Local Resources Page (Stub) -->
         <div id="resourcesPage" class="hidden p-6 pb-20">
-            <div class="flex items-center mb-6">
-                <button id="resourcesBackBtn" class="mr-3">
-                    <i data-feather="arrow-left" class="w-5 h-5"></i>
-                </button>
-                <div>
-                    <h2 class="text-xl font-bold">Local Resources</h2>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">Resources near <span id="resourcesZip"></span></p>
-                </div>
-            </div>
-
-            <div class="mb-4">
-                <div class="flex space-x-2 overflow-x-auto pb-2">
-                    <button class="filter-btn active bg-primary text-white px-4 py-2 rounded-full text-sm whitespace-nowrap" data-filter="all">All</button>
-                    <button class="filter-btn bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded-full text-sm whitespace-nowrap" data-filter="food">Food</button>
-                    <button class="filter-btn bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded-full text-sm whitespace-nowrap" data-filter="housing">Housing</button>
-                    <button class="filter-btn bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded-full text-sm whitespace-nowrap" data-filter="transport">Transport</button>
-                    <button class="filter-btn bg-gray-200 dark:bg-gray-700 px-4 py-2 rounded-full text-sm whitespace-nowrap" data-filter="healthcare">Healthcare</button>
-                </div>
-            </div>
-
-            <div id="resourcesList" class="space-y-4">
-                <!-- Resources will be populated here -->
-            </div>
+             <h2 class="text-xl font-bold mb-4">Local Resources</h2>
+             <p>Resource list will be displayed here.</p>
         </div>
 
-        <!-- Rewards Page -->
+        <!-- Rewards Page (Stub) -->
         <div id="rewardsPage" class="hidden p-6 pb-20">
-            <div class="flex items-center mb-6">
-                <button id="rewardsBackBtn" class="mr-3">
-                    <i data-feather="arrow-left" class="w-5 h-5"></i>
-                </button>
-                <div>
-                    <h2 class="text-xl font-bold">Rewards Store</h2>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">You have 125 points</p>
-                </div>
-            </div>
-
-            <div class="grid gap-4">
-                <!-- Rewards will be populated here -->
-            </div>
+             <h2 class="text-xl font-bold mb-4">Rewards</h2>
+             <p>Rewards store will be displayed here.</p>
         </div>
     </div>
 
@@ -471,238 +394,175 @@
     </div>
 
     <script>
-        // Dark mode detection
+        // --- Dark mode, Feather Icons, etc. ---
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             document.documentElement.classList.add('dark');
         }
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-            if (event.matches) {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-            }
+            if (event.matches) { document.documentElement.classList.add('dark'); } 
+            else { document.documentElement.classList.remove('dark'); }
         });
+        
 
-        // Initialize Feather icons
-        feather.replace();
-
-        // App state
+        // --- App State ---
         let currentPage = 'landing';
-        let userData = {};
+        let userData = {
+            firstName: '',
+            zipCode: ''
+        };
         let chatHistory = [];
         let points = 125;
         let currentQuestionIndex = 0;
 
-        // Pre-Appointment Health Screening Questions
+        // --- Mock Data ---
+        // FIXED: Restored the screening questions
         const screeningQuestions = [
             {
                 id: 'intro',
-                text: "Hello! I'm your AI Health Screening Assistant. Welcome to your pre-appointment check-in. I'll help you complete your health screening questionnaire and provide personalized health insights based on your location and medical history. Let's begin with your current health status. How are you feeling today overall?",
+                text: "Hello! I'm your AI Health Screening Assistant. To start, how are you feeling today overall?",
                 type: 'choice',
                 options: ['Excellent', 'Good', 'Fair', 'Poor'],
                 points: 10
             },
             {
                 id: 'symptoms',
-                text: "Thank you. Have you experienced any new or worsening symptoms since your last visit that you'd like to discuss with your provider?",
+                text: "Thank you. Have you experienced any new or worsening symptoms since your last visit?",
                 type: 'choice',
                 options: ['No new symptoms', 'Mild symptoms', 'Moderate symptoms', 'Severe symptoms'],
                 points: 15
             },
             {
                 id: 'medications',
-                text: "Are you currently taking all prescribed medications as directed, or have there been any changes or challenges with your medication routine?",
+                text: "Are you currently taking all prescribed medications as directed?",
                 type: 'choice',
-                options: ['Taking as prescribed', 'Minor missed doses', 'Frequent missed doses', 'Stopped taking medications'],
+                options: ['Taking as prescribed', 'Minor missed doses', 'Frequent missed doses', 'Stopped taking them'],
                 points: 15
             },
             {
                 id: 'housing',
-                text: "Now I'd like to understand factors that might affect your health. How stable is your current housing situation?",
+                text: "Thinking about things that can affect health, how stable is your current housing situation?",
                 type: 'choice',
-                options: ['Very stable', 'Somewhat stable', 'Unstable', 'Homeless/Temporary housing'],
+                options: ['Very stable', 'Somewhat stable', 'Unstable', 'No stable housing'],
                 points: 10
             },
             {
                 id: 'food',
-                text: "In the past 12 months, how often did you worry that your food would run out before you got money to buy more?",
+                text: "In the past 12 months, did you worry your food would run out before you got money to buy more?",
                 type: 'choice',
                 options: ['Never', 'Sometimes', 'Often', 'Very often'],
                 points: 15
             },
             {
                 id: 'transportation',
-                text: "How reliable is your transportation to medical appointments and for accessing healthcare services?",
+                text: "How reliable is your transportation for getting to medical appointments?",
                 type: 'choice',
-                options: ['Always reliable', 'Usually reliable', 'Sometimes unreliable', 'Major transportation barriers'],
+                options: ['Always reliable', 'Usually reliable', 'Sometimes unreliable', 'Major barriers'],
                 points: 15
             },
-            {
-                id: 'social_support',
-                text: "Do you have adequate social support when managing your health or during medical emergencies?",
-                type: 'choice',
-                options: ['Strong support system', 'Moderate support', 'Limited support', 'No support system'],
-                points: 10
-            },
-            {
-                id: 'financial',
-                text: "In the past year, have you had difficulty affording healthcare, medications, or other medical expenses?",
-                type: 'choice',
-                options: ['Never', 'Rarely', 'Sometimes', 'Often'],
-                points: 15
-            }
         ];
 
-        // Sample resources data
-        const localResources = [
-            {
-                id: 1,
-                name: "Community Food Bank",
-                type: "food",
-                description: "Free groceries and meals for families in need",
-                address: "123 Main St, Your City",
-                phone: "(555) 123-4567",
-                hours: "Mon-Fri 9AM-5PM",
-                distance: "0.5 miles"
+        const zipCodeHealthRisks = {
+            '100': { 
+                areaName: "New York City Area",
+                risks: [
+                    {
+                        title: "High Pollen Count",
+                        risk: "Increased",
+                        details: "Spring and fall may bring high pollen counts, increasing allergy and asthma symptoms. Monitor local pollen forecasts."
+                    },
+                    {
+                        title: "Air Pollution",
+                        risk: "Moderate",
+                        details: "Urban environments can have higher air pollution. On poor air quality days, consider limiting strenuous outdoor activities."
+                    }
+                ]
             },
-            {
-                id: 2,
-                name: "Housing Assistance Program",
-                type: "housing",
-                description: "Rental assistance and emergency housing support",
-                address: "456 Oak Ave, Your City",
-                phone: "(555) 234-5678",
-                hours: "Mon-Thu 8AM-6PM",
-                distance: "1.2 miles"
+            '902': { 
+                areaName: "Los Angeles County",
+                risks: [
+                    {
+                        title: "High Sun Exposure",
+                        risk: "High",
+                        details: "This area has significant sun exposure. Use sunscreen and protective clothing to reduce skin damage risk."
+                    },
+                    {
+                        title: "Wildfire Smoke",
+                        risk: "Seasonal",
+                        details: "During wildfire season, air quality can be impacted. Stay indoors and use air purifiers when smoke is heavy."
+                    }
+                ]
             },
-            {
-                id: 3,
-                name: "Free Medical Clinic",
-                type: "healthcare",
-                description: "Primary care services for uninsured residents",
-                address: "789 Pine St, Your City",
-                phone: "(555) 345-6789",
-                hours: "Tue, Thu 10AM-4PM",
-                distance: "0.8 miles"
-            },
-            {
-                id: 4,
-                name: "Public Transit Connect",
-                type: "transport",
-                description: "Free bus passes and transportation vouchers",
-                address: "321 Elm St, Your City",
-                phone: "(555) 456-7890",
-                hours: "Mon-Fri 7AM-7PM",
-                distance: "0.3 miles"
+            'default': {
+                areaName: "your area",
+                risks: [
+                    {
+                        title: "General Wellness",
+                        risk: "Standard",
+                        details: "Remember to stay hydrated, get regular exercise, and maintain a balanced diet for optimal health."
+                    }
+                ]
             }
-        ];
+        };
 
-        // Sample rewards data
-        const availableRewards = [
-            {
-                id: 1,
-                name: "$5 Grocery Voucher",
-                points: 50,
-                description: "Redeemable at participating grocery stores",
-                category: "food",
-                available: true
-            },
-            {
-                id: 2,
-                name: "$10 Grocery Voucher",
-                points: 100,
-                description: "Redeemable at participating grocery stores",
-                category: "food",
-                available: true
-            },
-            {
-                id: 3,
-                name: "Free Health Kit",
-                points: 150,
-                description: "Blood pressure monitor, thermometer, and first aid supplies",
-                category: "health",
-                available: true
-            },
-            {
-                id: 4,
-                name: "$20 Pharmacy Credit",
-                points: 200,
-                description: "Apply towards prescription medications",
-                category: "health",
-                available: false
-            },
-            {
-                id: 5,
-                name: "Community Center Membership",
-                points: 300,
-                description: "1-month access to fitness classes and programs",
-                category: "wellness",
-                available: true
-            }
-        ];
-
-        // Navigation functions
+        // --- Navigation & Page Management ---
         function showPage(pageId) {
-            // Hide all pages
-            document.querySelectorAll('[id$="Page"]').forEach(page => {
-                page.classList.add('hidden');
-            });
-            
-            // Show target page
-            document.getElementById(pageId + 'Page').classList.remove('hidden');
-            
-            // Update bottom nav visibility
-            const showBottomNav = ['dashboard', 'chat', 'resources', 'rewards'].includes(pageId);
+            document.querySelectorAll('[id$="Page"]').forEach(page => page.classList.add('hidden'));
+            const targetPage = document.getElementById(pageId + 'Page');
+            if(targetPage) {
+                targetPage.classList.remove('hidden');
+            }
+
+            // FIXED: Correctly show/hide bottom nav. It's hidden for landing, onboarding, consent, welcome, and chat.
+            const showBottomNav = ['dashboard', 'resources', 'rewards'].includes(pageId);
             document.getElementById('bottomNav').classList.toggle('hidden', !showBottomNav);
-            
-            // Update active nav button
+
             document.querySelectorAll('.nav-btn').forEach(btn => {
                 btn.classList.remove('text-primary');
                 btn.classList.add('text-gray-600', 'dark:text-gray-400');
             });
-            
-            const activeBtn = document.querySelector(`[data-page="${pageId}"]`);
+            const activeBtn = document.querySelector(`.nav-btn[data-page="${pageId}"]`);
             if (activeBtn) {
                 activeBtn.classList.remove('text-gray-600', 'dark:text-gray-400');
                 activeBtn.classList.add('text-primary');
             }
-            
+
             currentPage = pageId;
-            
-            // Page-specific initialization
-            if (pageId === 'resources') {
-                initResourcesPage();
-            } else if (pageId === 'rewards') {
-                initRewardsPage();
+
+            if (pageId === 'dashboard') {
+                updateDashboard();
             }
+            feather.replace(); // Refresh icons on page change
+        }
+        
+        function updateDashboard() {
+            document.getElementById('userZip').textContent = userData.zipCode || 'N/A';
+            updatePointsDisplay();
+            const summaryData = getLocationData(userData.zipCode);
+            updateDashboardSummary(summaryData);
         }
 
-        // Chat functions
+        // --- Chat Functions ---
         function addMessage(text, isBot = true, hasOptions = false, options = []) {
             const chatMessages = document.getElementById('chatMessages');
             const messageDiv = document.createElement('div');
-            messageDiv.className = `chat-bubble flex ${isBot ? 'justify-start' : 'justify-end'}`;
-            
-            const bubbleClass = isBot ? 
-                'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white' : 
-                'bg-primary text-white';
+            messageDiv.className = `chat-bubble flex w-full ${isBot ? 'justify-start' : 'justify-end'}`;
+
+            const bubbleClass = isBot 
+                ? 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white rounded-r-lg rounded-bl-lg' 
+                : 'bg-primary text-white rounded-l-lg rounded-br-lg';
             
             messageDiv.innerHTML = `
-                <div class="max-w-xs lg:max-w-md px-4 py-2 rounded-lg ${bubbleClass}">
-                    ${isBot ? '<div class="flex items-center space-x-2 mb-2"><div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center"><i data-feather="bot" class="w-3 h-3 text-white"></i></div><span class="text-xs font-medium">AI Assistant</span></div>' : ''}
+                <div class="max-w-xs lg:max-w-md px-4 py-3 ${bubbleClass}">
+                    ${isBot ? '<div class="flex items-center space-x-2 mb-2"><div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center shrink-0"><i data-feather="cpu" class="w-4 h-4 text-white"></i></div><span class="text-xs font-medium opacity-80">AI Assistant</span></div>' : ''}
                     <p class="text-sm">${text}</p>
                 </div>
             `;
-            
             chatMessages.appendChild(messageDiv);
             feather.replace();
-            
+
             if (hasOptions && options.length > 0) {
-                setTimeout(() => {
-                    showQuickResponses(options);
-                }, 500);
+                setTimeout(() => showQuickResponses(options), 500);
             }
-            
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
@@ -713,7 +573,7 @@
             
             options.forEach(option => {
                 const button = document.createElement('button');
-                button.className = 'bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 px-3 py-2 rounded-lg text-sm transition-colors';
+                button.className = 'bg-accent dark:bg-gray-700 hover:bg-blue-200 dark:hover:bg-gray-600 px-4 py-2 rounded-full text-sm font-medium transition-colors';
                 button.textContent = option;
                 button.onclick = () => selectQuickResponse(option);
                 quickResponses.appendChild(button);
@@ -721,69 +581,112 @@
         }
 
         function selectQuickResponse(response) {
-            // Add user response
             addMessage(response, false);
-            
-            // Hide quick responses
             document.getElementById('quickResponses').classList.add('hidden');
-            
-            // Award points
+
             const currentQuestion = screeningQuestions[currentQuestionIndex];
             if (currentQuestion) {
                 points += currentQuestion.points;
                 updatePointsDisplay();
-                
-                // Show points earned animation
                 showPointsEarned(currentQuestion.points);
             }
-            
-            // Move to next question or complete screening
             currentQuestionIndex++;
-            
+
             setTimeout(() => {
                 if (currentQuestionIndex < screeningQuestions.length) {
-                    // Show next question
                     const nextQuestion = screeningQuestions[currentQuestionIndex];
                     addMessage(nextQuestion.text, true, true, nextQuestion.options);
                 } else {
-                    // Complete screening
                     completeScreening();
                 }
             }, 1000);
         }
 
         function completeScreening() {
-            const completionMessage = `
-                Excellent! You've completed your pre-appointment health screening. 🏥
-                
-                Based on your responses, I've prepared a comprehensive health summary for your provider and identified relevant local healthcare resources. You've earned ${screeningQuestions.reduce((sum, q) => sum + q.points, 0)} points for completing this important health check-in!
-                
-                Your personalized health insights and appointment preparation summary are ready in your dashboard. This information will help make your upcoming appointment more effective and focused on your specific needs.
-            `;
-            
-            addMessage(completionMessage, true);
+            const totalPoints = screeningQuestions.reduce((sum, q) => sum + q.points, 0);
+            addMessage(`Excellent! You've completed your health screening. You've earned ${totalPoints} points! 🌟`, true);
             
             setTimeout(() => {
-                const dashboardButton = document.createElement('div');
-                dashboardButton.className = 'flex justify-center mt-4';
-                dashboardButton.innerHTML = `
-                    <button onclick="showPage('dashboard')" class="bg-primary text-white px-6 py-2 rounded-lg font-medium">
-                        View Health Summary & Insights
-                    </button>
-                `;
-                document.getElementById('chatMessages').appendChild(dashboardButton);
+                addMessage("I'm now generating a personalized summary based on your location...", true);
+                
+                setTimeout(() => {
+                    const summary = generateLocationBasedSummary(userData.zipCode);
+                    addMessage(summary, true);
+
+                    setTimeout(() => {
+                        const dashboardButton = document.createElement('div');
+                        dashboardButton.className = 'flex justify-center mt-4';
+                        dashboardButton.innerHTML = `
+                            <button onclick="showPage('dashboard')" class="bg-primary text-white px-6 py-2 rounded-lg font-medium shadow-lg hover:shadow-xl transition-shadow">
+                                View Full Health Summary
+                            </button>
+                        `;
+                        document.getElementById('chatMessages').appendChild(dashboardButton);
+                        document.getElementById('chatMessages').scrollTop = document.getElementById('chatMessages').scrollHeight;
+                    }, 1000);
+
+                }, 1500);
             }, 1000);
         }
 
+        function getLocationData(zipCode) {
+            let key = 'default';
+            if (zipCode) {
+                if (zipCode.startsWith('100')) key = '100';
+                else if (zipCode.startsWith('902')) key = '902';
+            }
+            return zipCodeHealthRisks[key];
+        }
+
+        function generateLocationBasedSummary(zipCode) {
+            const data = getLocationData(zipCode);
+            let summaryText = `Based on your location in the <strong>${data.areaName}</strong>, here are some environmental factors to be aware of:<br><br><ul class="list-disc list-inside space-y-2">`;
+            data.risks.forEach(risk => {
+                summaryText += `<li><strong>${risk.title}:</strong> ${risk.details}</li>`;
+            });
+            summaryText += "</ul><br>Please discuss any concerns with your healthcare provider.";
+            return summaryText;
+        }
+        
+        function updateDashboardSummary(data) {
+            const summaryContainer = document.getElementById('healthRiskSummary');
+            summaryContainer.innerHTML = ''; 
+
+            data.risks.forEach(risk => {
+                const riskLevelMap = {
+                    'Increased': { color: 'yellow', width: '60%' },
+                    'Moderate': { color: 'yellow', width: '60%' },
+                    'High': { color: 'red', width: '85%' },
+                    'Seasonal': { color: 'blue', width: '50%' },
+                    'Standard': { color: 'green', width: '25%' },
+                };
+                const level = riskLevelMap[risk.risk] || riskLevelMap['Standard'];
+
+                const riskElement = document.createElement('div');
+                riskElement.className = 'border-l-4 rounded-r-md p-3';
+                riskElement.classList.add(`border-${level.color}-500`, `bg-${level.color}-50`, `dark:bg-gray-800`);
+
+                riskElement.innerHTML = `
+                     <div class="flex justify-between items-center mb-1">
+                        <h4 class="font-semibold text-sm text-gray-800 dark:text-white">${risk.title}</h4>
+                        <span class="text-xs font-medium text-${level.color}-600 dark:text-${level.color}-400 ml-3">${risk.risk}</span>
+                     </div>
+                     <p class="text-xs text-gray-600 dark:text-gray-400">${risk.details}</p>
+                `;
+                summaryContainer.appendChild(riskElement);
+            });
+        }
+
+
+        // --- Points & UI Updates ---
         function showPointsEarned(earnedPoints) {
             const notification = document.createElement('div');
-            notification.className = 'fixed top-20 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-lg z-50 animate-bounce';
-            notification.innerHTML = `+${earnedPoints} points earned! 🌟`;
+            notification.className = 'fixed top-20 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-lg z-50 shadow-lg';
+            notification.style.animation = 'fadeInOut 2s ease-in-out';
+            notification.innerHTML = `+${earnedPoints} points! 🌟`;
             document.body.appendChild(notification);
             
-            setTimeout(() => {
-                notification.remove();
-            }, 2000);
+            setTimeout(() => notification.remove(), 2000);
         }
 
         function updatePointsDisplay() {
@@ -792,229 +695,86 @@
                 <span class="text-sm font-medium text-amber-700 dark:text-amber-300">${points} pts</span>
             `;
             feather.replace();
-        }
-
-        // Resources page functions
-        function initResourcesPage() {
-            document.getElementById('resourcesZip').textContent = userData.zipCode || '12345';
-            populateResources();
-        }
-
-        function populateResources() {
-            const resourcesList = document.getElementById('resourcesList');
-            resourcesList.innerHTML = '';
             
-            localResources.forEach(resource => {
-                const resourceCard = document.createElement('div');
-                resourceCard.className = `resource-card bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700`;
-                resourceCard.dataset.type = resource.type;
-                
-                const typeColors = {
-                    food: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
-                    housing: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
-                    healthcare: 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200',
-                    transport: 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200'
-                };
-                
-                resourceCard.innerHTML = `
-                    <div class="flex justify-between items-start mb-3">
-                        <h3 class="font-semibold text-lg">${resource.name}</h3>
-                        <span class="px-2 py-1 rounded text-xs font-medium ${typeColors[resource.type] || 'bg-gray-100 text-gray-800'}">${resource.type}</span>
-                    </div>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">${resource.description}</p>
-                    <div class="space-y-2 text-sm">
-                        <div class="flex items-center space-x-2">
-                            <i data-feather="map-pin" class="w-4 h-4 text-gray-500"></i>
-                            <span>${resource.address}</span>
-                            <span class="text-primary font-medium">${resource.distance}</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <i data-feather="phone" class="w-4 h-4 text-gray-500"></i>
-                            <span>${resource.phone}</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <i data-feather="clock" class="w-4 h-4 text-gray-500"></i>
-                            <span>${resource.hours}</span>
-                        </div>
-                    </div>
-                    <div class="mt-4 flex space-x-2">
-                        <button class="flex-1 bg-primary text-white py-2 rounded-lg text-sm font-medium">
-                            Get Directions
-                        </button>
-                        <button class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm">
-                            Call
-                        </button>
-                    </div>
-                `;
-                
-                resourcesList.appendChild(resourceCard);
-            });
-            
-            feather.replace();
-        }
-
-        // Rewards page functions
-        function initRewardsPage() {
-            populateRewards();
-        }
-
-        function populateRewards() {
-            const rewardsContainer = document.querySelector('#rewardsPage .grid');
-            rewardsContainer.innerHTML = '';
-            
-            availableRewards.forEach(reward => {
-                const canAfford = points >= reward.points;
-                const rewardCard = document.createElement('div');
-                rewardCard.className = `reward-card bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700 ${!reward.available ? 'opacity-50' : ''}`;
-                
-                const categoryColors = {
-                    food: 'text-green-600',
-                    health: 'text-blue-600',
-                    wellness: 'text-purple-600'
-                };
-                
-                rewardCard.innerHTML = `
-                    <div class="text-center">
-                        <div class="w-12 h-12 bg-gray-100 dark:bg-gray-700 rounded-full mx-auto mb-3 flex items-center justify-center">
-                            <i data-feather="gift" class="w-6 h-6 ${categoryColors[reward.category] || 'text-gray-600'}"></i>
-                        </div>
-                        <h3 class="font-semibold mb-2">${reward.name}</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">${reward.description}</p>
-                        <div class="text-lg font-bold text-primary mb-3">${reward.points} points</div>
-                        <button class="w-full py-2 rounded-lg text-sm font-medium ${
-                            canAfford && reward.available 
-                                ? 'bg-primary text-white hover:bg-purple-600' 
-                                : 'bg-gray-200 dark:bg-gray-700 text-gray-500 cursor-not-allowed'
-                        }" ${canAfford && reward.available ? '' : 'disabled'}>
-                            ${!reward.available ? 'Out of Stock' : canAfford ? 'Redeem' : `Need ${reward.points - points} more points`}
-                        </button>
-                    </div>
-                `;
-                
-                rewardsContainer.appendChild(rewardCard);
-            });
-            
-            feather.replace();
-        }
-
-        // Event listeners
-        document.getElementById('startBtn').addEventListener('click', () => {
-            showPage('onboarding');
-        });
-
-        document.getElementById('continueOnboarding').addEventListener('click', () => {
-            userData.firstName = document.getElementById('firstName').value;
-            userData.zipCode = document.getElementById('zipCode').value;
-            showPage('consent');
-        });
-
-        // Consent checkboxes
-        const consentCheckboxes = ['dataConsent', 'rewardsConsent', 'communicationConsent'];
-        consentCheckboxes.forEach(id => {
-            document.getElementById(id).addEventListener('change', () => {
-                const allChecked = consentCheckboxes.every(checkboxId => 
-                    document.getElementById(checkboxId).checked
-                );
-                document.getElementById('acceptConsent').disabled = !allChecked;
-            });
-        });
-
-        document.getElementById('acceptConsent').addEventListener('click', () => {
-            showPage('welcome');
-        });
-
-        document.getElementById('startScreening').addEventListener('click', () => {
-            showPage('chat');
-            // Start first question
-            setTimeout(() => {
-                addMessage(screeningQuestions[0].text, true, true, screeningQuestions[0].options);
-            }, 500);
-        });
-
-        // Chat input
-        document.getElementById('chatInput').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
-        });
-
-        document.getElementById('sendBtn').addEventListener('click', sendMessage);
-
-        function sendMessage() {
-            const input = document.getElementById('chatInput');
-            const message = input.value.trim();
-            if (message) {
-                addMessage(message, false);
-                input.value = '';
-                
-                // Simple echo response for demo
-                setTimeout(() => {
-                    addMessage("Thank you for your message. I'm here to help with your health screening.", true);
-                }, 1000);
+            const dashboardPoints = document.getElementById('dashboardPoints');
+            if(dashboardPoints) {
+                dashboardPoints.textContent = `${points} / 200 points`;
+                const pointsBar = document.getElementById('dashboardPointsBar');
+                pointsBar.style.width = `${Math.min(100, (points / 200) * 100)}%`;
             }
         }
 
-        // Navigation
-        document.querySelectorAll('.nav-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                showPage(btn.dataset.page);
+        // --- Event Listeners ---
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('startBtn').addEventListener('click', () => showPage('onboarding'));
+
+            document.getElementById('continueOnboarding').addEventListener('click', () => {
+                const firstName = document.getElementById('firstName').value.trim();
+                const zipCode = document.getElementById('zipCode').value.trim();
+                
+                if (!firstName || !zipCode) {
+                    alert("Please fill out all fields.");
+                    return;
+                }
+
+                userData.firstName = firstName;
+                userData.zipCode = zipCode;
+                document.getElementById('welcomeName').textContent = userData.firstName;
+                showPage('consent');
             });
-        });
 
-        // Back buttons
-        document.getElementById('backBtn').addEventListener('click', () => {
-            showPage('dashboard');
-        });
-
-        document.getElementById('resourcesBackBtn').addEventListener('click', () => {
-            showPage('dashboard');
-        });
-
-        document.getElementById('rewardsBackBtn').addEventListener('click', () => {
-            showPage('dashboard');
-        });
-
-        // Dashboard quick actions
-        document.getElementById('resourcesBtn').addEventListener('click', () => {
-            showPage('resources');
-        });
-
-        document.getElementById('rewardsBtn').addEventListener('click', () => {
-            showPage('rewards');
-        });
-
-        // Resource filters
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Update active filter
-                document.querySelectorAll('.filter-btn').forEach(b => {
-                    b.classList.remove('active', 'bg-primary', 'text-white');
-                    b.classList.add('bg-gray-200', 'dark:bg-gray-700');
+            const consentCheckboxes = ['dataConsent', 'rewardsConsent', 'communicationConsent'];
+            consentCheckboxes.forEach(id => {
+                document.getElementById(id).addEventListener('change', () => {
+                    const allChecked = consentCheckboxes.every(checkboxId => document.getElementById(checkboxId).checked);
+                    document.getElementById('acceptConsent').disabled = !allChecked;
                 });
-                btn.classList.add('active', 'bg-primary', 'text-white');
-                btn.classList.remove('bg-gray-200', 'dark:bg-gray-700');
-                
-                // Filter resources
-                const filter = btn.dataset.filter;
-                document.querySelectorAll('.resource-card').forEach(card => {
-                    if (filter === 'all' || card.dataset.type === filter) {
-                        card.style.display = 'block';
+            });
+
+            document.getElementById('acceptConsent').addEventListener('click', () => showPage('welcome'));
+
+            document.getElementById('startScreening').addEventListener('click', () => {
+                showPage('chat');
+                currentQuestionIndex = 0; 
+                document.getElementById('chatMessages').innerHTML = ''; 
+                setTimeout(() => addMessage(screeningQuestions[0].text, true, true, screeningQuestions[0].options), 500);
+            });
+
+            document.getElementById('backBtn').addEventListener('click', () => showPage('dashboard'));
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const page = btn.dataset.page;
+                    if(page === 'chat') {
+                        // Special handling to restart chat if accessed from nav
+                        showPage('chat');
+                        currentQuestionIndex = 0; 
+                        document.getElementById('chatMessages').innerHTML = '';
+                        setTimeout(() => addMessage(screeningQuestions[0].text, true, true, screeningQuestions[0].options), 500);
                     } else {
-                        card.style.display = 'none';
+                        showPage(page);
                     }
                 });
             });
+
+            document.getElementById('resourcesBtn').addEventListener('click', () => showPage('resources'));
+            document.getElementById('rewardsBtn').addEventListener('click', () => showPage('rewards'));
+
+            // --- Initialize App ---
+            showPage('landing');
+            feather.replace();
         });
-
-        // Initialize ZIP code display
-        setTimeout(() => {
-            if (userData.zipCode) {
-                document.getElementById('userZip').textContent = userData.zipCode;
-            }
-        }, 100);
-
-        // Initialize the app
-        feather.replace();
     </script>
+     <style>
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translate(-50%, -20px); }
+            20% { opacity: 1; transform: translate(-50%, 0); }
+            80% { opacity: 1; transform: translate(-50%, 0); }
+            100% { opacity: 0; transform: translate(-50%, -20px); }
+        }
+        .h-screen-minus-nav {
+             height: calc(100vh - 61px); /* Adjust 61px to match your nav height */
+        }
+    </style>
 </body>
 </html>
