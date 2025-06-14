@@ -336,7 +336,7 @@
                 </div>
                 <div class="flex justify-between items-center mb-2">
                     <span id="dashboardPoints" class="text-sm">125 / 200 points</span>
-                    <span id="rewardsStatusText" class="text-sm">Next reward: $10 grocery voucher</span>
+                    <span id="rewardStatusText" class="text-sm">Next reward: $10 grocery voucher</span>
                 </div>
                 <div class="bg-white bg-opacity-20 rounded-full h-2">
                     <div id="dashboardPointsBar" class="bg-white h-2 rounded-full" style="width: 62.5%"></div>
@@ -415,7 +415,6 @@
         let currentQuestionIndex = 0;
 
         // --- Mock Data ---
-        // FIXED: Restored the screening questions
         const screeningQuestions = [
             {
                 id: 'intro',
@@ -512,7 +511,6 @@
                 targetPage.classList.remove('hidden');
             }
 
-            // FIXED: Correctly show/hide bottom nav. It's hidden for landing, onboarding, consent, welcome, and chat.
             const showBottomNav = ['dashboard', 'resources', 'rewards'].includes(pageId);
             document.getElementById('bottomNav').classList.toggle('hidden', !showBottomNav);
 
@@ -698,18 +696,19 @@
             
             const dashboardPoints = document.getElementById('dashboardPoints');
             if(dashboardPoints) {
+                // Update the points and progress bar
                 dashboardPoints.textContent = `${points} / 200 points`;
                 const pointsBar = document.getElementById('dashboardPointsBar');
                 pointsBar.style.width = `${Math.min(100, (points / 200) * 100)}%`;
-
-                //Dynamically update reward text
+                
+                // Find the reward status element using the ID from the HTML
                 const rewardStatusText = document.getElementById('rewardStatusText');
-                if (rewardStatusText) {
-                    if (points >= 200) {
-                        rewardStatusText.textContent = 'Reward Unlocked!';
-                    } else {
-                        rewardStatusText.textContent = 'Next reward: $10 grocery voucher.';
-                    }
+
+                // update text based on points
+                if (points >= 200) {
+                    rewardStatusText.textContent = 'Reward Unlocked!';
+                } else {
+                    rewardStatusText.textContent = 'Next reward: $10 grocery voucher';
                 }
             }
         }
@@ -783,7 +782,7 @@
             100% { opacity: 0; transform: translate(-50%, -20px); }
         }
         .h-screen-minus-nav {
-             height: calc(100vh - 61px); /* Adjust 61px to match your nav height */
+             height: calc(100vh - 61px);
         }
     </style>
 </body>
