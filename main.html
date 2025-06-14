@@ -336,7 +336,7 @@
                 </div>
                 <div class="flex justify-between items-center mb-2">
                     <span id="dashboardPoints" class="text-sm">125 / 200 points</span>
-                    <span class="text-sm">Next reward: $10 grocery voucher</span>
+                    <span id="rewardsStatusText" class="text-sm">Next reward: $10 grocery voucher</span>
                 </div>
                 <div class="bg-white bg-opacity-20 rounded-full h-2">
                     <div id="dashboardPointsBar" class="bg-white h-2 rounded-full" style="width: 62.5%"></div>
@@ -701,6 +701,16 @@
                 dashboardPoints.textContent = `${points} / 200 points`;
                 const pointsBar = document.getElementById('dashboardPointsBar');
                 pointsBar.style.width = `${Math.min(100, (points / 200) * 100)}%`;
+
+                //Dynamically update reward text
+                const rewardStatusText = document.getElementById('rewardStatusText');
+                if (rewardStatusText) {
+                    if (points >= 200) {
+                        rewardStatusText.textContent = 'Reward Unlocked!';
+                    } else {
+                        rewardStatusText.textContent = 'Next reward: $10 grocery voucher.';
+                    }
+                }
             }
         }
 
