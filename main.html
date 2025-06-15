@@ -72,7 +72,7 @@
                 <div class="flex items-center space-x-4">
                     <div id="pointsDisplay" class="flex items-center space-x-1 bg-amber-100 dark:bg-amber-900 px-3 py-1 rounded-full">
                         <i data-feather="star" class="w-4 h-4 text-amber-600"></i>
-                        <span class="text-sm font-medium text-amber-700 dark:text-amber-300">125 pts</span>
+                        <span id="navPoints" class="text-sm font-medium text-amber-700 dark:text-amber-300">125 pts</span>
                     </div>
                     <button id="menuBtn" class="p-2">
                         <i data-feather="menu" class="w-5 h-5"></i>
@@ -91,340 +91,106 @@
                 <h1 class="text-2xl font-bold mb-2">Welcome to HealthConnect</h1>
                 <p class="text-gray-600 dark:text-gray-400">Pre-appointment AI health screening with personalized insights</p>
             </div>
-
             <div class="space-y-4 mb-8">
-                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                        <i data-feather="message-circle" class="w-5 h-5 text-white"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold">Pre-Appointment Screening</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Answer a few questions to prepare for your visit.</p>
-                    </div>
-                </div>
-                
-                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center">
-                        <i data-feather="map-pin" class="w-5 h-5 text-white"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold">Local Health Insights</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Get personalized alerts based on your location.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-amber-500 rounded-lg flex items-center justify-center">
-                        <i data-feather="gift" class="w-5 h-5 text-white"></i>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold">Earn Rewards</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Get points for engaging with your health.</p>
-                    </div>
-                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 flex items-center space-x-3"><div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center"><i data-feather="message-circle" class="w-5 h-5 text-white"></i></div><div><h3 class="font-semibold">Pre-Appointment Screening</h3><p class="text-sm text-gray-600 dark:text-gray-400">Answer a few questions to prepare for your visit.</p></div></div>
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 flex items-center space-x-3"><div class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center"><i data-feather="map-pin" class="w-5 h-5 text-white"></i></div><div><h3 class="font-semibold">Local Health Insights</h3><p class="text-sm text-gray-600 dark:text-gray-400">Get personalized alerts based on your location.</p></div></div>
+                <div class="bg-white dark:bg-gray-800 rounded-lg p-4 flex items-center space-x-3"><div class="w-10 h-10 bg-amber-500 rounded-lg flex items-center justify-center"><i data-feather="gift" class="w-5 h-5 text-white"></i></div><div><h3 class="font-semibold">Earn Rewards</h3><p class="text-sm text-gray-600 dark:text-gray-400">Get points for engaging with your health.</p></div></div>
             </div>
-
-            <button id="startBtn" class="w-full bg-primary text-white py-4 rounded-lg font-semibold text-lg hover:bg-purple-600 transition-colors">
-                Begin Pre-Appointment Check-in
-            </button>
-
-            <p class="text-xs text-gray-500 text-center mt-4">
-                Your privacy is protected. All data is encrypted and HIPAA compliant.
-            </p>
+            <button id="startBtn" class="w-full bg-primary text-white py-4 rounded-lg font-semibold text-lg hover:bg-purple-600 transition-colors">Begin Pre-Appointment Check-in</button>
+            <p class="text-xs text-gray-500 text-center mt-4">Your privacy is protected. All data is encrypted and HIPAA compliant.</p>
         </div>
 
         <div id="onboardingPage" class="hidden p-6">
-            <div class="mb-6">
-                <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-xl font-bold">Getting Started</h2>
-                    <span class="text-sm text-gray-500">Step 1 of 3</span>
-                </div>
-                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                    <div class="bg-primary h-2 rounded-full progress-bar" style="width: 33%"></div>
-                </div>
-            </div>
-
+            <div class="mb-6"><div class="flex justify-between items-center mb-4"><h2 class="text-xl font-bold">Getting Started</h2><span class="text-sm text-gray-500">Step 1 of 3</span></div><div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2"><div class="bg-primary h-2 rounded-full progress-bar" style="width: 33%"></div></div></div>
             <div class="space-y-6">
-                <div>
-                    <label for="firstName" class="block text-sm font-medium mb-2">Full Name</label>
-                    <input type="text" id="firstName" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg text-base bg-white dark:bg-gray-800" placeholder="Enter your first name">
-                </div>
-
-                <div>
-                    <label for="zipCode" class="block text-sm font-medium mb-2">ZIP Code</label>
-                    <input type="text" id="zipCode" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg text-base bg-white dark:bg-gray-800" placeholder="e.g., 10001 for NYC">
-                    <p class="text-xs text-gray-500 mt-1">We use this to find local resources and health insights for you.</p>
-                </div>
-
-                <div>
-                    <label for="language" class="block text-sm font-medium mb-2">Preferred Language</label>
-                    <select id="language" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg text-base bg-white dark:bg-gray-800">
-                        <option>English</option>
-                        <option>Spanish</option>
-                        <option>French</option>
-                        <option>Chinese</option>
-                    </select>
-                </div>
-
-                <div class="bg-blue-50 dark:bg-gray-800 p-4 rounded-lg">
-                    <div class="flex items-start space-x-3">
-                        <i data-feather="shield" class="w-5 h-5 text-blue-600 mt-0.5"></i>
-                        <div class="text-sm">
-                            <p class="font-medium text-blue-800 dark:text-blue-200">Privacy Notice</p>
-                            <p class="text-blue-700 dark:text-blue-300 mt-1">Your responses are confidential and used only to provide personalized health insights and local resource recommendations.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <button id="continueOnboarding" class="w-full bg-primary text-white py-3 rounded-lg font-semibold">
-                    Continue
-                </button>
+                <div><label for="firstName" class="block text-sm font-medium mb-2">Full Name</label><input type="text" id="firstName" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg text-base bg-white dark:bg-gray-800" placeholder="Enter your first name"></div>
+                <div><label for="zipCode" class="block text-sm font-medium mb-2">ZIP Code</label><input type="text" id="zipCode" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg text-base bg-white dark:bg-gray-800" placeholder="e.g., 10001 for NYC"><p class="text-xs text-gray-500 mt-1">We use this to find local resources and health insights for you.</p></div>
+                <div><label for="language" class="block text-sm font-medium mb-2">Preferred Language</label><select id="language" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg text-base bg-white dark:bg-gray-800"><option>English</option><option>Spanish</option><option>French</option><option>Chinese</option></select></div>
+                <div class="bg-blue-50 dark:bg-gray-800 p-4 rounded-lg"><div class="flex items-start space-x-3"><i data-feather="shield" class="w-5 h-5 text-blue-600 mt-0.5"></i><div class="text-sm"><p class="font-medium text-blue-800 dark:text-blue-200">Privacy Notice</p><p class="text-blue-700 dark:text-blue-300 mt-1">Your responses are confidential and used only to provide personalized health insights and local resource recommendations.</p></div></div></div>
+                <button id="continueOnboarding" class="w-full bg-primary text-white py-3 rounded-lg font-semibold">Continue</button>
             </div>
         </div>
 
         <div id="consentPage" class="hidden p-6">
-            <div class="mb-6">
-                <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-xl font-bold">Privacy & Consent</h2>
-                    <span class="text-sm text-gray-500">Step 2 of 3</span>
-                </div>
-                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                    <div class="bg-primary h-2 rounded-full progress-bar" style="width: 66%"></div>
-                </div>
-            </div>
-
+            <div class="mb-6"><div class="flex justify-between items-center mb-4"><h2 class="text-xl font-bold">Privacy & Consent</h2><span class="text-sm text-gray-500">Step 2 of 3</span></div><div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2"><div class="bg-primary h-2 rounded-full progress-bar" style="width: 66%"></div></div></div>
             <div class="space-y-6">
-                <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-                    <h3 class="font-semibold mb-3">Data Collection & Use</h3>
-                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                        <li class="flex items-start space-x-2">
-                            <i data-feather="check" class="w-4 h-4 text-green-500 mt-0.5"></i>
-                            <span>HIPAA compliant data handling</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                            <i data-feather="check" class="w-4 h-4 text-green-500 mt-0.5"></i>
-                            <span>Anonymized screening responses</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                            <i data-feather="check" class="w-4 h-4 text-green-500 mt-0.5"></i>
-                            <span>Encrypted data transmission</span>
-                        </li>
-                        <li class="flex items-start space-x-2">
-                            <i data-feather="check" class="w-4 h-4 text-green-500 mt-0.5"></i>
-                            <span>No data sharing without consent</span>
-                        </li>
-                    </ul>
-                </div>
-
+                <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg"><h3 class="font-semibold mb-3">Data Collection & Use</h3><ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400"><li class="flex items-start space-x-2"><i data-feather="check" class="w-4 h-4 text-green-500 mt-0.5"></i><span>HIPAA compliant data handling</span></li><li class="flex items-start space-x-2"><i data-feather="check" class="w-4 h-4 text-green-500 mt-0.5"></i><span>Anonymized screening responses</span></li><li class="flex items-start space-x-2"><i data-feather="check" class="w-4 h-4 text-green-500 mt-0.5"></i><span>Encrypted data transmission</span></li><li class="flex items-start space-x-2"><i data-feather="check" class="w-4 h-4 text-green-500 mt-0.5"></i><span>No data sharing without consent</span></li></ul></div>
                 <div class="space-y-4">
-                    <label class="flex items-start space-x-3">
-                        <input type="checkbox" id="dataConsent" class="mt-1 form-checkbox rounded text-primary focus:ring-primary">
-                        <span class="text-sm">I consent to the collection and use of my health screening data to provide personalized insights and local resource recommendations.</span>
-                    </label>
-
-                    <label class="flex items-start space-x-3">
-                        <input type="checkbox" id="rewardsConsent" class="mt-1 form-checkbox rounded text-primary focus:ring-primary">
-                        <span class="text-sm">I agree to participate in the rewards program and receive community challenges and incentives.</span>
-                    </label>
-
-                    <label class="flex items-start space-x-3">
-                        <input type="checkbox" id="communicationConsent" class="mt-1 form-checkbox rounded text-primary focus:ring-primary">
-                        <span class="text-sm">I consent to receive health-related communications and local resource updates via the app.</span>
-                    </label>
+                    <label class="flex items-start space-x-3"><input type="checkbox" id="dataConsent" class="mt-1 form-checkbox rounded text-primary focus:ring-primary"><span class="text-sm">I consent to the collection and use of my health screening data to provide personalized insights and local resource recommendations.</span></label>
+                    <label class="flex items-start space-x-3"><input type="checkbox" id="rewardsConsent" class="mt-1 form-checkbox rounded text-primary focus:ring-primary"><span class="text-sm">I agree to participate in the rewards program and receive community challenges and incentives.</span></label>
+                    <label class="flex items-start space-x-3"><input type="checkbox" id="communicationConsent" class="mt-1 form-checkbox rounded text-primary focus:ring-primary"><span class="text-sm">I consent to receive health-related communications and local resource updates via the app.</span></label>
                 </div>
-
-                <button id="acceptConsent" class="w-full bg-primary text-white py-3 rounded-lg font-semibold disabled:bg-gray-400 dark:disabled:bg-gray-600" disabled>
-                    Accept & Continue
-                </button>
+                <button id="acceptConsent" class="w-full bg-primary text-white py-3 rounded-lg font-semibold disabled:bg-gray-400 dark:disabled:bg-gray-600" disabled>Accept & Continue</button>
             </div>
         </div>
 
         <div id="welcomePage" class="hidden p-6">
-            <div class="mb-6">
-                <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-xl font-bold">Welcome Setup</h2>
-                    <span class="text-sm text-gray-500">Step 3 of 3</span>
-                </div>
-                <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                    <div class="bg-primary h-2 rounded-full progress-bar" style="width: 100%"></div>
-                </div>
-            </div>
-
-            <div class="text-center mb-8">
-                <div class="w-16 h-16 bg-green-100 dark:bg-green-800 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <i data-feather="check" class="w-8 h-8 text-green-600"></i>
-                </div>
-                <h3 class="text-lg font-semibold mb-2">You're all set, <span id="welcomeName"></span>!</h3>
-                <p class="text-gray-600 dark:text-gray-400">Let's start with your health screening</p>
-            </div>
-
-            <div class="bg-gradient-to-r from-primary to-purple-600 rounded-lg p-6 text-white mb-6">
-                <h4 class="font-semibold mb-2">🏥 Pre-Appointment Preparation</h4>
-                <p class="text-sm mb-3">Complete your health screening to optimize your upcoming appointment and earn 50 points!</p>
-                <div class="bg-white bg-opacity-20 rounded-full h-2 mb-2">
-                    <div class="bg-white h-2 rounded-full" style="width: 0%"></div>
-                </div>
-                <p class="text-xs opacity-90">0/50 points earned</p>
-            </div>
-
-            <button id="startScreening" class="w-full bg-primary text-white py-3 rounded-lg font-semibold">
-                Start Pre-Appointment Screening
-            </button>
+            <div class="mb-6"><div class="flex justify-between items-center mb-4"><h2 class="text-xl font-bold">Welcome Setup</h2><span class="text-sm text-gray-500">Step 3 of 3</span></div><div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2"><div class="bg-primary h-2 rounded-full progress-bar" style="width: 100%"></div></div></div>
+            <div class="text-center mb-8"><div class="w-16 h-16 bg-green-100 dark:bg-green-800 rounded-full mx-auto mb-4 flex items-center justify-center"><i data-feather="check" class="w-8 h-8 text-green-600"></i></div><h3 class="text-lg font-semibold mb-2">You're all set, <span id="welcomeName"></span>!</h3><p class="text-gray-600 dark:text-gray-400">Let's start with your health screening</p></div>
+            <div class="bg-gradient-to-r from-primary to-purple-600 rounded-lg p-6 text-white mb-6"><h4 class="font-semibold mb-2">🏥 Pre-Appointment Preparation</h4><p class="text-sm mb-3">Complete your health screening to optimize your upcoming appointment and earn 50 points!</p><div class="bg-white bg-opacity-20 rounded-full h-2 mb-2"><div class="bg-white h-2 rounded-full" style="width: 0%"></div></div><p class="text-xs opacity-90">0/50 points earned</p></div>
+            <button id="startScreening" class="w-full bg-primary text-white py-3 rounded-lg font-semibold">Start Pre-Appointment Screening</button>
         </div>
 
         <div id="chatPage" class="hidden flex flex-col h-screen-minus-nav">
-             <div class="bg-white dark:bg-gray-800 p-4 border-b dark:border-gray-700">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center space-x-3">
-                        <button id="backBtn">
-                            <i data-feather="arrow-left" class="w-5 h-5"></i>
-                        </button>
-                        <div>
-                            <h2 class="font-semibold">AI Health Assistant</h2>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">Pre-appointment check-in</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center space-x-1">
-                        <div class="w-2 h-2 bg-green-400 rounded-full pulse-dot"></div>
-                        <span class="text-xs">Online</span>
-                    </div>
-                </div>
-            </div>
-
-            <div id="chatMessages" class="flex-1 p-4 space-y-4 overflow-y-auto">
-                </div>
-
-            <div class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 p-4">
-                <div class="max-w-md mx-auto">
-                    <div id="quickResponses" class="hidden mb-3 flex flex-wrap gap-2 justify-center">
-                        </div>
-                    <div class="flex space-x-2">
-                        <input type="text" id="chatInput" class="flex-1 p-3 border border-gray-300 dark:border-gray-600 rounded-lg text-base bg-white dark:bg-gray-800" placeholder="Type your response..." disabled>
-                        <button id="sendBtn" class="bg-primary text-white p-3 rounded-lg disabled:bg-gray-400" disabled>
-                            <i data-feather="send" class="w-5 h-5"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
+             <div class="bg-white dark:bg-gray-800 p-4 border-b dark:border-gray-700"><div class="flex items-center justify-between"><div class="flex items-center space-x-3"><button id="backBtn"><i data-feather="arrow-left" class="w-5 h-5"></i></button><div><h2 class="font-semibold">AI Health Assistant</h2><p class="text-sm text-gray-500 dark:text-gray-400">Pre-appointment check-in</p></div></div><div class="flex items-center space-x-1"><div class="w-2 h-2 bg-green-400 rounded-full pulse-dot"></div><span class="text-xs">Online</span></div></div></div>
+            <div id="chatMessages" class="flex-1 p-4 space-y-4 overflow-y-auto"></div>
+            <div class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 p-4"><div class="max-w-md mx-auto"><div id="quickResponses" class="hidden mb-3 flex flex-wrap gap-2 justify-center"></div><div class="flex space-x-2"><input type="text" id="chatInput" class="flex-1 p-3 border border-gray-300 dark:border-gray-600 rounded-lg text-base bg-white dark:bg-gray-800" placeholder="Type your response..." disabled><button id="sendBtn" class="bg-primary text-white p-3 rounded-lg disabled:bg-gray-400" disabled><i data-feather="send" class="w-5 h-5"></i></button></div></div></div>
         </div>
 
         <div id="dashboardPage" class="hidden p-6 pb-20">
-            <div class="mb-6">
-                <h2 class="text-xl font-bold mb-2">Health Summary</h2>
-                <p class="text-gray-600 dark:text-gray-400">Personalized insights for ZIP code: <span id="userZip" class="font-medium text-primary"></span></p>
-            </div>
-            
-            <div class="bg-white dark:bg-gray-800 rounded-lg p-4 mb-6 border border-gray-200 dark:border-gray-700">
-                <h3 class="font-semibold mb-4 flex items-center">
-                    <i data-feather="map-pin" class="w-5 h-5 mr-2 text-primary"></i>
-                    Local Environmental Factors
-                </h3>
-                <div id="healthRiskSummary" class="space-y-4">
-                    <p class="text-sm text-gray-500">Complete the AI health screening to see personalized insights for your area.</p>
-                </div>
-            </div>
-
-            <div class="bg-gradient-to-r from-amber-400 to-orange-500 rounded-lg p-4 mb-6 text-white">
-                <div class="flex justify-between items-center mb-3">
-                    <h3 class="font-semibold">Rewards Progress</h3>
-                    <i data-feather="gift" class="w-5 h-5"></i>
-                </div>
-                <div class="flex justify-between items-center mb-2">
-                    <span id="dashboardPoints" class="text-sm">125 / 200 points</span>
-                    <span id="rewardStatusText" class="text-sm">Next reward: $10 grocery voucher</span>
-                </div>
-                <div class="bg-white bg-opacity-20 rounded-full h-2">
-                    <div id="dashboardPointsBar" class="bg-white h-2 rounded-full" style="width: 62.5%"></div>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-2 gap-4 mb-6">
-                <button id="resourcesBtn" class="bg-blue-50 dark:bg-gray-800 p-4 rounded-lg text-center">
-                    <i data-feather="globe" class="w-6 h-6 text-blue-600 mx-auto mb-2"></i>
-                    <span class="text-sm font-medium">Local Resources</span>
-                </button>
-                <button id="rewardsBtn" class="bg-green-50 dark:bg-gray-800 p-4 rounded-lg text-center">
-                    <i data-feather="award" class="w-6 h-6 text-green-600 mx-auto mb-2"></i>
-                    <span class="text-sm font-medium">View Rewards</span>
-                </button>
-            </div>
+            <div class="mb-6"><h2 class="text-xl font-bold mb-2">Health Summary</h2><p class="text-gray-600 dark:text-gray-400">Personalized insights for ZIP code: <span id="userZip" class="font-medium text-primary"></span></p></div>
+            <div class="bg-white dark:bg-gray-800 rounded-lg p-4 mb-6 border border-gray-200 dark:border-gray-700"><h3 class="font-semibold mb-4 flex items-center"><i data-feather="map-pin" class="w-5 h-5 mr-2 text-primary"></i>Local Environmental Factors</h3><div id="healthRiskSummary" class="space-y-4"><p class="text-sm text-gray-500">Complete the AI health screening to see personalized insights for your area.</p></div></div>
+            <div class="bg-gradient-to-r from-amber-400 to-orange-500 rounded-lg p-4 mb-6 text-white"><div class="flex justify-between items-center mb-3"><h3 class="font-semibold">Rewards Progress</h3><i data-feather="gift" class="w-5 h-5"></i></div><div class="flex justify-between items-center mb-2"><span id="dashboardPoints" class="text-sm">125 / 200 points</span><span id="rewardStatusText" class="text-sm">Next reward: $10 grocery voucher</span></div><div class="bg-white bg-opacity-20 rounded-full h-2"><div id="dashboardPointsBar" class="bg-white h-2 rounded-full" style="width: 62.5%"></div></div></div>
+            <div class="grid grid-cols-2 gap-4 mb-6"><button id="resourcesBtn" class="bg-blue-50 dark:bg-gray-800 p-4 rounded-lg text-center"><i data-feather="globe" class="w-6 h-6 text-blue-600 mx-auto mb-2"></i><span class="text-sm font-medium">Local Resources</span></button><button id="rewardsBtn" class="bg-green-50 dark:bg-gray-800 p-4 rounded-lg text-center"><i data-feather="award" class="w-6 h-6 text-green-600 mx-auto mb-2"></i><span class="text-sm font-medium">View Rewards</span></button></div>
         </div>
 
         <div id="resourcesPage" class="hidden p-6 pb-20">
-            <div class="flex items-center mb-4">
-                <button id="resourcesBackBtn" class="p-2 -ml-2 mr-2">
-                    <i data-feather="arrow-left" class="w-5 h-5"></i>
-                </button>
-                <div>
-                    <h2 class="text-xl font-bold">Local Resources</h2>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">Resources near <span id="resourcesZip"></span></p>
-                </div>
-            </div>
-
+            <div class="flex items-center mb-4"><button id="resourcesBackBtn" class="p-2 -ml-2 mr-2"><i data-feather="arrow-left" class="w-5 h-5"></i></button><div><h2 class="text-xl font-bold">Local Resources</h2><p class="text-sm text-gray-500 dark:text-gray-400">Resources near <span id="resourcesZip"></span></p></div></div>
             <div class="mb-4">
-                <div id="resourceFilters" class="flex space-x-2 overflow-x-auto pb-2 no-scrollbar">
-                    <button class="resource-filter-btn is-active flex-shrink-0" data-category="all">All</button>
-                    <button class="resource-filter-btn flex-shrink-0" data-category="food">Food</button>
-                    <button class="resource-filter-btn flex-shrink-0" data-category="housing">Housing</button>
-                    <button class="resource-filter-btn flex-shrink-0" data-category="transport">Transport</button>
-                    <button class="resource-filter-btn flex-shrink-0" data-category="healthcare">Healthcare</button>
+                <div id="resourceFilters" class="flex space-x-1">
+                    <button class="resource-filter-btn is-active" data-category="all">All</button>
+                    <button class="resource-filter-btn" data-category="food">Food</button>
+                    <button class="resource-filter-btn" data-category="housing">Housing</button>
+                    <button class="resource-filter-btn" data-category="transport">Transport</button>
+                    <button class="resource-filter-btn" data-category="healthcare">Healthcare</button>
                 </div>
             </div>
-            
-            <div id="resourceList" class="space-y-4">
-                </div>
+            <div id="resourceList" class="space-y-4"></div>
         </div>
-
+        
         <div id="rewardsPage" class="hidden p-6 pb-20">
-             <h2 class="text-xl font-bold mb-4">Rewards</h2>
-             <p>Rewards store will be displayed here.</p>
+             <div class="flex items-center mb-4">
+                <button id="rewardsBackBtn" class="p-2 -ml-2 mr-2"><i data-feather="arrow-left" class="w-5 h-5"></i></button>
+                <div>
+                    <h2 class="text-xl font-bold">Rewards Store</h2>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">You have <span id="rewardsPointsBalance" class="font-bold text-amber-600">0</span> points</p>
+                </div>
+            </div>
+            <div id="rewardsList" class="space-y-4">
+                </div>
         </div>
     </div>
 
     <div id="bottomNav" class="hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
         <div class="max-w-md mx-auto px-4 py-2">
             <div class="flex justify-around">
-                <button class="nav-btn flex flex-col items-center py-2 px-3 text-gray-600 dark:text-gray-400" data-page="dashboard">
-                    <i data-feather="home" class="w-5 h-5"></i>
-                    <span class="text-xs mt-1">Home</span>
-                </button>
-                <button class="nav-btn flex flex-col items-center py-2 px-3 text-gray-600 dark:text-gray-400" data-page="chat">
-                    <i data-feather="message-circle" class="w-5 h-5"></i>
-                    <span class="text-xs mt-1">Chat</span>
-                </button>
-                <button class="nav-btn flex flex-col items-center py-2 px-3 text-gray-600 dark:text-gray-400" data-page="resources">
-                    <i data-feather="map-pin" class="w-5 h-5"></i>
-                    <span class="text-xs mt-1">Resources</span>
-                </button>
-                <button class="nav-btn flex flex-col items-center py-2 px-3 text-gray-600 dark:text-gray-400" data-page="rewards">
-                    <i data-feather="gift" class="w-5 h-5"></i>
-                    <span class="text-xs mt-1">Rewards</span>
-                </button>
+                <button class="nav-btn flex flex-col items-center py-2 px-3 text-gray-600 dark:text-gray-400" data-page="dashboard"><i data-feather="home" class="w-5 h-5"></i><span class="text-xs mt-1">Home</span></button>
+                <button class="nav-btn flex flex-col items-center py-2 px-3 text-gray-600 dark:text-gray-400" data-page="chat"><i data-feather="message-circle" class="w-5 h-5"></i><span class="text-xs mt-1">Chat</span></button>
+                <button class="nav-btn flex flex-col items-center py-2 px-3 text-gray-600 dark:text-gray-400" data-page="resources"><i data-feather="map-pin" class="w-5 h-5"></i><span class="text-xs mt-1">Resources</span></button>
+                <button class="nav-btn flex flex-col items-center py-2 px-3 text-gray-600 dark:text-gray-400" data-page="rewards"><i data-feather="gift" class="w-5 h-5"></i><span class="text-xs mt-1">Rewards</span></button>
             </div>
         </div>
     </div>
 
     <script>
-        // --- Dark mode, Feather Icons, etc. ---
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.classList.add('dark');
-        }
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-            if (event.matches) { document.documentElement.classList.add('dark'); } 
-            else { document.documentElement.classList.remove('dark'); }
-        });
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) { document.documentElement.classList.add('dark'); }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => e.matches ? document.documentElement.classList.add('dark') : document.documentElement.classList.remove('dark'));
         
-        // --- App State ---
         let currentPage = 'landing';
-        let userData = {
-            firstName: '',
-            zipCode: ''
-        };
-        let chatHistory = [];
+        let userData = { firstName: '', zipCode: '' };
         let points = 125;
         let currentQuestionIndex = 0;
 
-        // --- Mock Data ---
         const screeningQuestions = [
             { id: 'intro', text: "Hello! I'm your AI Health Screening Assistant. To start, how are you feeling today overall?", type: 'choice', options: ['Excellent', 'Good', 'Fair', 'Poor'], points: 10 },
             { id: 'symptoms', text: "Thank you. Have you experienced any new or worsening symptoms since your last visit?", type: 'choice', options: ['No new symptoms', 'Mild symptoms', 'Moderate symptoms', 'Severe symptoms'], points: 15 },
@@ -447,13 +213,18 @@
             { name: "Downtown Health Clinic", category: "healthcare", description: "Affordable primary care and urgent care services.", address: "101 Center St, Your City", phone: "(555) 456-7890", hours: "Mon-Sat 8AM-8PM", distance: 1.8 }
         ];
 
-        // --- Navigation & Page Management ---
+        // NEW: Data for the rewards store
+        const rewardsStoreItems = [
+            { id: 1, title: "$5 Grocery Voucher", description: "Redeemable at participating grocery stores", cost: 50, icon: "shopping-cart" },
+            { id: 2, title: "$10 Grocery Voucher", description: "Redeemable at participating grocery stores", cost: 100, icon: "shopping-cart" },
+            { id: 3, title: "Free Bus Pass", description: "A single-day pass for public transport", cost: 75, icon: "truck" },
+            { id: 4, title: "$20 Pharmacy Credit", description: "Credit for over-the-counter items", cost: 150, icon: "plus-circle" }
+        ];
+
         function showPage(pageId) {
             document.querySelectorAll('[id$="Page"]').forEach(page => page.classList.add('hidden'));
             const targetPage = document.getElementById(pageId + 'Page');
-            if(targetPage) {
-                targetPage.classList.remove('hidden');
-            }
+            if(targetPage) { targetPage.classList.remove('hidden'); }
             const showBottomNav = ['dashboard', 'resources', 'rewards'].includes(pageId);
             document.getElementById('bottomNav').classList.toggle('hidden', !showBottomNav);
             document.querySelectorAll('.nav-btn').forEach(btn => {
@@ -472,17 +243,17 @@
                 document.getElementById('resourcesZip').textContent = userData.zipCode || 'N/A';
                 renderResources(); 
             }
+            // NEW: Added hook for rewards page
+            if (pageId === 'rewards') { renderRewardsStore(); }
             feather.replace();
         }
         
         function updateDashboard() {
             document.getElementById('userZip').textContent = userData.zipCode || 'N/A';
             updatePointsDisplay();
-            const summaryData = getLocationData(userData.zipCode);
-            updateDashboardSummary(summaryData);
+            updateDashboardSummary(getLocationData(userData.zipCode));
         }
 
-        // --- Chat Functions ---
         function addMessage(text, isBot = true, hasOptions = false, options = []) {
             const chatMessages = document.getElementById('chatMessages');
             const messageDiv = document.createElement('div');
@@ -548,12 +319,9 @@
         }
 
         function getLocationData(zipCode) {
-            let key = 'default';
-            if (zipCode) {
-                if (zipCode.startsWith('100')) key = '100';
-                else if (zipCode.startsWith('902')) key = '902';
-            }
-            return zipCodeHealthRisks[key];
+            if (zipCode?.startsWith('100')) return zipCodeHealthRisks['100'];
+            if (zipCode?.startsWith('902')) return zipCodeHealthRisks['902'];
+            return zipCodeHealthRisks['default'];
         }
 
         function generateLocationBasedSummary(zipCode) {
@@ -565,99 +333,85 @@
         }
         
         function updateDashboardSummary(data) {
-            const summaryContainer = document.getElementById('healthRiskSummary');
-            summaryContainer.innerHTML = ''; 
+            const container = document.getElementById('healthRiskSummary');
+            container.innerHTML = ''; 
             data.risks.forEach(risk => {
-                const riskLevelMap = { 'Increased': { color: 'yellow', width: '60%' }, 'Moderate': { color: 'yellow', width: '60%' }, 'High': { color: 'red', width: '85%' }, 'Seasonal': { color: 'blue', width: '50%' }, 'Standard': { color: 'green', width: '25%' } };
-                const level = riskLevelMap[risk.risk] || riskLevelMap['Standard'];
-                const riskElement = document.createElement('div');
-                riskElement.className = 'border-l-4 rounded-r-md p-3';
-                riskElement.classList.add(`border-${level.color}-500`, `bg-${level.color}-50`, `dark:bg-gray-800`);
-                riskElement.innerHTML = `<div class="flex justify-between items-center mb-1"><h4 class="font-semibold text-sm text-gray-800 dark:text-white">${risk.title}</h4><span class="text-xs font-medium text-${level.color}-600 dark:text-${level.color}-400 ml-3">${risk.risk}</span></div><p class="text-xs text-gray-600 dark:text-gray-400">${risk.details}</p>`;
-                summaryContainer.appendChild(riskElement);
+                const map = { Increased: 'yellow', Moderate: 'yellow', High: 'red', Seasonal: 'blue', Standard: 'green' };
+                const color = map[risk.risk] || 'gray';
+                const el = document.createElement('div');
+                el.className = 'border-l-4 rounded-r-md p-3';
+                el.classList.add(`border-${color}-500`, `bg-${color}-50`, `dark:bg-gray-800`);
+                el.innerHTML = `<div class="flex justify-between items-center mb-1"><h4 class="font-semibold text-sm text-gray-800 dark:text-white">${risk.title}</h4><span class="text-xs font-medium text-${color}-600 dark:text-${color}-400 ml-3">${risk.risk}</span></div><p class="text-xs text-gray-600 dark:text-gray-400">${risk.details}</p>`;
+                container.appendChild(el);
             });
         }
 
-        // --- Points & UI Updates ---
         function showPointsEarned(earnedPoints) {
-            const notification = document.createElement('div');
-            notification.className = 'fixed top-20 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-lg z-50 shadow-lg';
-            notification.style.animation = 'fadeInOut 2s ease-in-out';
-            notification.innerHTML = `+${earnedPoints} points! 🌟`;
-            document.body.appendChild(notification);
-            setTimeout(() => notification.remove(), 2000);
+            const el = document.createElement('div');
+            el.className = 'fixed top-20 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-lg z-50 shadow-lg';
+            el.style.animation = 'fadeInOut 2s ease-in-out';
+            el.innerHTML = `+${earnedPoints} points! 🌟`;
+            document.body.appendChild(el);
+            setTimeout(() => el.remove(), 2000);
         }
 
+        // MODIFIED: This function now updates the nav points more safely
         function updatePointsDisplay() {
-            document.getElementById('pointsDisplay').innerHTML = `<i data-feather="star" class="w-4 h-4 text-amber-600"></i><span class="text-sm font-medium text-amber-700 dark:text-amber-300">${points} pts</span>`;
-            feather.replace();
+            document.getElementById('navPoints').textContent = `${points} pts`;
             const dashboardPoints = document.getElementById('dashboardPoints');
             if(dashboardPoints) {
                 dashboardPoints.textContent = `${points} / 200 points`;
-                const pointsBar = document.getElementById('dashboardPointsBar');
-                pointsBar.style.width = `${Math.min(100, (points / 200) * 100)}%`;
+                document.getElementById('dashboardPointsBar').style.width = `${Math.min(100, (points / 200) * 100)}%`;
                 const rewardStatusText = document.getElementById('rewardStatusText');
-                if (!rewardStatusText) { console.error("DEBUG: Could not find element with id='rewardStatusText'. Check the HTML."); return; }
-                if (points >= 200) { rewardStatusText.textContent = 'Reward Unlocked!'; } 
-                else { rewardStatusText.textContent = 'Next reward: $10 grocery voucher'; }
+                if (rewardStatusText) {
+                    if (points >= 200) { rewardStatusText.textContent = 'Reward Unlocked!'; } 
+                    else { rewardStatusText.textContent = 'Next reward: $10 grocery voucher'; }
+                }
             }
         }
 
-        // --- NEW: Resource Page Functions ---
         function renderResources(filter = 'all') {
             const resourceList = document.getElementById('resourceList');
             resourceList.innerHTML = '';
-            
-            const filteredResources = localResources.filter(resource => filter === 'all' || resource.category === filter);
-
-            if (filteredResources.length === 0) {
-                resourceList.innerHTML = `<p class="text-center text-gray-500 dark:text-gray-400">No resources found for this category.</p>`;
-                return;
-            }
-
-            filteredResources.forEach(resource => {
+            const filtered = localResources.filter(r => filter === 'all' || r.category === filter);
+            if (filtered.length === 0) { list.innerHTML = `<p class="text-center text-gray-500 dark:text-gray-400">No resources found.</p>`; return; }
+            filtered.forEach(r => {
                 const card = document.createElement('div');
                 card.className = 'bg-white dark:bg-gray-800 rounded-lg p-5 shadow-sm border border-gray-200 dark:border-gray-700';
-                
-                const categoryColors = {
-                    food: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
-                    housing: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
-                    transport: 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200',
-                    healthcare: 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200',
-                };
-
-                card.innerHTML = `
-                    <div class="flex justify-between items-start mb-3">
-                        <h3 class="font-bold text-lg">${resource.name}</h3>
-                        <span class="text-xs font-medium px-2 py-1 rounded-full ${categoryColors[resource.category] || ''}">${resource.category}</span>
-                    </div>
-                    <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">${resource.description}</p>
-                    <div class="space-y-3 text-sm text-gray-800 dark:text-gray-200">
-                        <div class="flex items-center">
-                            <i data-feather="map-pin" class="w-4 h-4 mr-3 text-gray-500"></i>
-                            <span>${resource.address}</span>
-                            <span class="ml-auto text-primary font-medium">${resource.distance} miles</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i data-feather="phone" class="w-4 h-4 mr-3 text-gray-500"></i>
-                            <span>${resource.phone}</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i data-feather="clock" class="w-4 h-4 mr-3 text-gray-500"></i>
-                            <span>${resource.hours}</span>
-                        </div>
-                    </div>
-                    <div class="mt-5 grid grid-cols-2 gap-3">
-                        <button class="w-full bg-primary text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-opacity-90">Get Directions</button>
-                        <button class="w-full bg-gray-100 dark:bg-gray-700 py-2.5 rounded-lg font-semibold text-sm hover:bg-gray-200 dark:hover:bg-gray-600">Call</button>
-                    </div>
-                `;
+                const colors = { food: 'green', housing: 'blue', transport: 'purple', healthcare: 'red' };
+                const color = colors[r.category] || 'gray';
+                card.innerHTML = `<div class="flex justify-between items-start mb-3"><h3 class="font-bold text-lg">${r.name}</h3><span class="text-xs font-medium px-2 py-1 rounded-full bg-${color}-100 text-${color}-800 dark:bg-${color}-900 dark:text-${color}-200">${r.category}</span></div><p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">${r.description}</p><div class="space-y-3 text-sm text-gray-800 dark:text-gray-200"><div class="flex items-center"><i data-feather="map-pin" class="w-4 h-4 mr-3 text-gray-500"></i><span>${r.address}</span><span class="ml-auto text-primary font-medium">${r.distance} miles</span></div><div class="flex items-center"><i data-feather="phone" class="w-4 h-4 mr-3 text-gray-500"></i><span>${r.phone}</span></div><div class="flex items-center"><i data-feather="clock" class="w-4 h-4 mr-3 text-gray-500"></i><span>${r.hours}</span></div></div><div class="mt-5 grid grid-cols-2 gap-3"><button class="w-full bg-primary text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-opacity-90">Get Directions</button><button class="w-full bg-gray-100 dark:bg-gray-700 py-2.5 rounded-lg font-semibold text-sm hover:bg-gray-200 dark:hover:bg-gray-600">Call</button></div>`;
                 resourceList.appendChild(card);
             });
             feather.replace();
         }
 
-        // --- Event Listeners ---
+        // NEW: Function to render the rewards store
+        function renderRewardsStore() {
+            document.getElementById('rewardsPointsBalance').textContent = points;
+            const rewardsList = document.getElementById('rewardsList');
+            rewardsList.innerHTML = '';
+            rewardsStoreItems.forEach(item => {
+                const canAfford = points >= item.cost;
+                const card = document.createElement('div');
+                card.className = 'bg-white dark:bg-gray-800 rounded-lg p-5 text-center shadow-sm border dark:border-gray-700';
+                card.innerHTML = `
+                    <div class="w-16 h-16 bg-gray-200 dark:bg-gray-700 rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <i data-feather="${item.icon}" class="w-8 h-8 text-gray-500"></i>
+                    </div>
+                    <h3 class="font-bold text-lg">${item.title}</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1 mb-3">${item.description}</p>
+                    <p class="text-primary font-bold text-lg mb-4">${item.cost} points</p>
+                    <button class="w-full py-2.5 rounded-lg font-semibold text-sm redeem-btn ${canAfford ? 'bg-primary text-white' : 'bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 cursor-not-allowed'}"
+                        ${canAfford ? '' : 'disabled'} data-cost="${item.cost}">
+                        Redeem
+                    </button>
+                `;
+                rewardsList.appendChild(card);
+            });
+            feather.replace();
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('startBtn').addEventListener('click', () => showPage('onboarding'));
             document.getElementById('continueOnboarding').addEventListener('click', () => {
@@ -670,10 +424,9 @@
                 showPage('consent');
             });
 
-            const consentCheckboxes = ['dataConsent', 'rewardsConsent', 'communicationConsent'];
-            consentCheckboxes.forEach(id => {
+            ['dataConsent', 'rewardsConsent', 'communicationConsent'].forEach(id => {
                 document.getElementById(id).addEventListener('change', () => {
-                    const allChecked = consentCheckboxes.every(checkboxId => document.getElementById(checkboxId).checked);
+                    const allChecked = ['dataConsent', 'rewardsConsent', 'communicationConsent'].every(i => document.getElementById(i).checked);
                     document.getElementById('acceptConsent').disabled = !allChecked;
                 });
             });
@@ -696,62 +449,50 @@
                         currentQuestionIndex = 0; 
                         document.getElementById('chatMessages').innerHTML = '';
                         setTimeout(() => addMessage(screeningQuestions[0].text, true, true, screeningQuestions[0].options), 500);
-                    } else {
-                        showPage(page);
-                    }
+                    } else { showPage(page); }
                 });
             });
 
             document.getElementById('resourcesBtn').addEventListener('click', () => showPage('resources'));
             document.getElementById('rewardsBtn').addEventListener('click', () => showPage('rewards'));
             document.getElementById('resourcesBackBtn').addEventListener('click', () => showPage('dashboard'));
+            
+            // NEW: Event listener for rewards back button
+            document.getElementById('rewardsBackBtn').addEventListener('click', () => showPage('dashboard'));
 
-            // Resource filter logic
-            const filterContainer = document.getElementById('resourceFilters');
-            filterContainer.addEventListener('click', (e) => {
+            document.getElementById('resourceFilters').addEventListener('click', (e) => {
                 if (e.target.classList.contains('resource-filter-btn')) {
-                    filterContainer.querySelector('.is-active').classList.remove('is-active');
+                    document.querySelector('#resourceFilters .is-active').classList.remove('is-active');
                     e.target.classList.add('is-active');
                     renderResources(e.target.dataset.category);
                 }
             });
 
-            // --- Initialize App ---
+            // NEW: Event listener for redeeming rewards
+            document.getElementById('rewardsList').addEventListener('click', e => {
+                if (e.target.classList.contains('redeem-btn') && !e.target.disabled) {
+                    const cost = parseInt(e.target.dataset.cost);
+                    if (points >= cost) {
+                        points -= cost;
+                        alert(`Reward redeemed! You have ${points} points remaining.`);
+                        updatePointsDisplay();
+                        renderRewardsStore();
+                    }
+                }
+            });
+
             showPage('landing');
             feather.replace();
         });
     </script>
      <style>
-        @keyframes fadeInOut {
-            0% { opacity: 0; transform: translate(-50%, -20px); } 20% { opacity: 1; transform: translate(-50%, 0); }
-            80% { opacity: 1; transform: translate(-50%, 0); } 100% { opacity: 0; transform: translate(-50%, -20px); }
-        }
+        @keyframes fadeInOut { 0%,100% { opacity:0;transform:translate(-50%,-20px) } 20%,80% { opacity:1;transform:translate(-50%,0) } }
         .h-screen-minus-nav { height: calc(100vh - 61px); }
-        .resource-filter-btn {
-            padding: 8px 16px;
-            border-radius: 9999px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            background-color: #F3F4F6; /* bg-gray-100 */
-            color: #374151; /* text-gray-700 */
-            border-bottom: 2px solid transparent;
-        }
-        .dark .resource-filter-btn {
-            background-color: #374151; /* dark:bg-gray-700 */
-            color: #D1D5DB; /* dark:text-gray-300 */
-        }
-        .resource-filter-btn.is-active {
-            background-color: #5D5CDE; /* bg-primary */
-            color: white;
-        }
-        .dark .resource-filter-btn.is-active {
-            background-color: #5D5CDE; /* dark:bg-primary */
-            color: white;
-        }
-        .nav-btn.text-primary > i, .nav-btn.text-primary > span {
-            color: #5D5CDE; /* primary color */
-        }
+        .resource-filter-btn { padding: 6px 12px; border-radius: 9999px; font-size: 0.875rem; font-weight: 500; transition: all 0.2s ease; background-color: #F3F4F6; color: #374151; border-bottom: 2px solid transparent; flex-shrink: 1; }
+        .dark .resource-filter-btn { background-color: #374151; color: #D1D5DB; }
+        .resource-filter-btn.is-active { background-color: #5D5CDE; color: white; }
+        .dark .resource-filter-btn.is-active { background-color: #5D5CDE; color: white; }
+        .nav-btn.text-primary > i, .nav-btn.text-primary > span { color: #5D5CDE; }
     </style>
 </body>
 </html>
