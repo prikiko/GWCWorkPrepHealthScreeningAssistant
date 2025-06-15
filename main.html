@@ -35,6 +35,14 @@
         .progress-bar {
             transition: width 0.5s ease;
         }
+        /* For hiding the scrollbar but keeping functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
     </style>
     <script>
         tailwind.config = {
@@ -52,7 +60,6 @@
     </script>
 </head>
 <body class="bg-secondary dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen">
-    <!-- Navigation -->
     <nav class="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50">
         <div class="max-w-md mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
@@ -75,9 +82,7 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <div class="max-w-md mx-auto">
-        <!-- Landing Page -->
         <div id="landingPage" class="p-6">
             <div class="text-center mb-8">
                 <div class="w-24 h-24 bg-gradient-to-br from-primary to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
@@ -128,7 +133,6 @@
             </p>
         </div>
 
-        <!-- Onboarding -->
         <div id="onboardingPage" class="hidden p-6">
             <div class="mb-6">
                 <div class="flex justify-between items-center mb-4">
@@ -167,7 +171,7 @@
                         <i data-feather="shield" class="w-5 h-5 text-blue-600 mt-0.5"></i>
                         <div class="text-sm">
                             <p class="font-medium text-blue-800 dark:text-blue-200">Privacy Notice</p>
-                            <p class="text-blue-700 dark:text-blue-300 mt-1">Your responses are confidential and used only to provide personalized health insights and local resources.</p>
+                            <p class="text-blue-700 dark:text-blue-300 mt-1">Your responses are confidential and used only to provide personalized health insights and local resource recommendations.</p>
                         </div>
                     </div>
                 </div>
@@ -178,7 +182,6 @@
             </div>
         </div>
 
-        <!-- Consent Page -->
         <div id="consentPage" class="hidden p-6">
             <div class="mb-6">
                 <div class="flex justify-between items-center mb-4">
@@ -236,7 +239,6 @@
             </div>
         </div>
 
-        <!-- Welcome Dashboard -->
         <div id="welcomePage" class="hidden p-6">
             <div class="mb-6">
                 <div class="flex justify-between items-center mb-4">
@@ -270,7 +272,6 @@
             </button>
         </div>
 
-        <!-- Chatbot Interface -->
         <div id="chatPage" class="hidden flex flex-col h-screen-minus-nav">
              <div class="bg-white dark:bg-gray-800 p-4 border-b dark:border-gray-700">
                 <div class="flex items-center justify-between">
@@ -291,14 +292,12 @@
             </div>
 
             <div id="chatMessages" class="flex-1 p-4 space-y-4 overflow-y-auto">
-                <!-- Messages will be added here -->
-            </div>
+                </div>
 
             <div class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 p-4">
                 <div class="max-w-md mx-auto">
                     <div id="quickResponses" class="hidden mb-3 flex flex-wrap gap-2 justify-center">
-                        <!-- Quick response buttons will be added here -->
-                    </div>
+                        </div>
                     <div class="flex space-x-2">
                         <input type="text" id="chatInput" class="flex-1 p-3 border border-gray-300 dark:border-gray-600 rounded-lg text-base bg-white dark:bg-gray-800" placeholder="Type your response..." disabled>
                         <button id="sendBtn" class="bg-primary text-white p-3 rounded-lg disabled:bg-gray-400" disabled>
@@ -309,26 +308,22 @@
             </div>
         </div>
 
-        <!-- Dashboard -->
         <div id="dashboardPage" class="hidden p-6 pb-20">
             <div class="mb-6">
                 <h2 class="text-xl font-bold mb-2">Health Summary</h2>
                 <p class="text-gray-600 dark:text-gray-400">Personalized insights for ZIP code: <span id="userZip" class="font-medium text-primary"></span></p>
             </div>
             
-            <!-- Location Health Risks -->
             <div class="bg-white dark:bg-gray-800 rounded-lg p-4 mb-6 border border-gray-200 dark:border-gray-700">
                 <h3 class="font-semibold mb-4 flex items-center">
                     <i data-feather="map-pin" class="w-5 h-5 mr-2 text-primary"></i>
                     Local Environmental Factors
                 </h3>
                 <div id="healthRiskSummary" class="space-y-4">
-                    <!-- Summary will be populated here by JS -->
                     <p class="text-sm text-gray-500">Complete the AI health screening to see personalized insights for your area.</p>
                 </div>
             </div>
 
-            <!-- Points & Rewards -->
             <div class="bg-gradient-to-r from-amber-400 to-orange-500 rounded-lg p-4 mb-6 text-white">
                 <div class="flex justify-between items-center mb-3">
                     <h3 class="font-semibold">Rewards Progress</h3>
@@ -343,7 +338,6 @@
                 </div>
             </div>
 
-            <!-- Quick Actions -->
             <div class="grid grid-cols-2 gap-4 mb-6">
                 <button id="resourcesBtn" class="bg-blue-50 dark:bg-gray-800 p-4 rounded-lg text-center">
                     <i data-feather="globe" class="w-6 h-6 text-blue-600 mx-auto mb-2"></i>
@@ -356,20 +350,37 @@
             </div>
         </div>
 
-        <!-- Local Resources Page (Stub) -->
         <div id="resourcesPage" class="hidden p-6 pb-20">
-             <h2 class="text-xl font-bold mb-4">Local Resources</h2>
-             <p>Resource list will be displayed here.</p>
+            <div class="flex items-center mb-4">
+                <button id="resourcesBackBtn" class="p-2 -ml-2 mr-2">
+                    <i data-feather="arrow-left" class="w-5 h-5"></i>
+                </button>
+                <div>
+                    <h2 class="text-xl font-bold">Local Resources</h2>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Resources near <span id="resourcesZip"></span></p>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <div id="resourceFilters" class="flex space-x-2 overflow-x-auto pb-2 no-scrollbar">
+                    <button class="resource-filter-btn is-active flex-shrink-0" data-category="all">All</button>
+                    <button class="resource-filter-btn flex-shrink-0" data-category="food">Food</button>
+                    <button class="resource-filter-btn flex-shrink-0" data-category="housing">Housing</button>
+                    <button class="resource-filter-btn flex-shrink-0" data-category="transport">Transport</button>
+                    <button class="resource-filter-btn flex-shrink-0" data-category="healthcare">Healthcare</button>
+                </div>
+            </div>
+            
+            <div id="resourceList" class="space-y-4">
+                </div>
         </div>
 
-        <!-- Rewards Page (Stub) -->
         <div id="rewardsPage" class="hidden p-6 pb-20">
              <h2 class="text-xl font-bold mb-4">Rewards</h2>
              <p>Rewards store will be displayed here.</p>
         </div>
     </div>
 
-    <!-- Bottom Navigation -->
     <div id="bottomNav" class="hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
         <div class="max-w-md mx-auto px-4 py-2">
             <div class="flex justify-around">
@@ -403,7 +414,6 @@
             else { document.documentElement.classList.remove('dark'); }
         });
         
-
         // --- App State ---
         let currentPage = 'landing';
         let userData = {
@@ -416,92 +426,26 @@
 
         // --- Mock Data ---
         const screeningQuestions = [
-            {
-                id: 'intro',
-                text: "Hello! I'm your AI Health Screening Assistant. To start, how are you feeling today overall?",
-                type: 'choice',
-                options: ['Excellent', 'Good', 'Fair', 'Poor'],
-                points: 10
-            },
-            {
-                id: 'symptoms',
-                text: "Thank you. Have you experienced any new or worsening symptoms since your last visit?",
-                type: 'choice',
-                options: ['No new symptoms', 'Mild symptoms', 'Moderate symptoms', 'Severe symptoms'],
-                points: 15
-            },
-            {
-                id: 'medications',
-                text: "Are you currently taking all prescribed medications as directed?",
-                type: 'choice',
-                options: ['Taking as prescribed', 'Minor missed doses', 'Frequent missed doses', 'Stopped taking them'],
-                points: 15
-            },
-            {
-                id: 'housing',
-                text: "Thinking about things that can affect health, how stable is your current housing situation?",
-                type: 'choice',
-                options: ['Very stable', 'Somewhat stable', 'Unstable', 'No stable housing'],
-                points: 10
-            },
-            {
-                id: 'food',
-                text: "In the past 12 months, did you worry your food would run out before you got money to buy more?",
-                type: 'choice',
-                options: ['Never', 'Sometimes', 'Often', 'Very often'],
-                points: 15
-            },
-            {
-                id: 'transportation',
-                text: "How reliable is your transportation for getting to medical appointments?",
-                type: 'choice',
-                options: ['Always reliable', 'Usually reliable', 'Sometimes unreliable', 'Major barriers'],
-                points: 15
-            },
+            { id: 'intro', text: "Hello! I'm your AI Health Screening Assistant. To start, how are you feeling today overall?", type: 'choice', options: ['Excellent', 'Good', 'Fair', 'Poor'], points: 10 },
+            { id: 'symptoms', text: "Thank you. Have you experienced any new or worsening symptoms since your last visit?", type: 'choice', options: ['No new symptoms', 'Mild symptoms', 'Moderate symptoms', 'Severe symptoms'], points: 15 },
+            { id: 'medications', text: "Are you currently taking all prescribed medications as directed?", type: 'choice', options: ['Taking as prescribed', 'Minor missed doses', 'Frequent missed doses', 'Stopped taking them'], points: 15 },
+            { id: 'housing', text: "Thinking about things that can affect health, how stable is your current housing situation?", type: 'choice', options: ['Very stable', 'Somewhat stable', 'Unstable', 'No stable housing'], points: 10 },
+            { id: 'food', text: "In the past 12 months, did you worry your food would run out before you got money to buy more?", type: 'choice', options: ['Never', 'Sometimes', 'Often', 'Very often'], points: 15 },
+            { id: 'transportation', text: "How reliable is your transportation for getting to medical appointments?", type: 'choice', options: ['Always reliable', 'Usually reliable', 'Sometimes unreliable', 'Major barriers'], points: 15 },
         ];
 
         const zipCodeHealthRisks = {
-            '100': { 
-                areaName: "New York City Area",
-                risks: [
-                    {
-                        title: "High Pollen Count",
-                        risk: "Increased",
-                        details: "Spring and fall may bring high pollen counts, increasing allergy and asthma symptoms. Monitor local pollen forecasts."
-                    },
-                    {
-                        title: "Air Pollution",
-                        risk: "Moderate",
-                        details: "Urban environments can have higher air pollution. On poor air quality days, consider limiting strenuous outdoor activities."
-                    }
-                ]
-            },
-            '902': { 
-                areaName: "Los Angeles County",
-                risks: [
-                    {
-                        title: "High Sun Exposure",
-                        risk: "High",
-                        details: "This area has significant sun exposure. Use sunscreen and protective clothing to reduce skin damage risk."
-                    },
-                    {
-                        title: "Wildfire Smoke",
-                        risk: "Seasonal",
-                        details: "During wildfire season, air quality can be impacted. Stay indoors and use air purifiers when smoke is heavy."
-                    }
-                ]
-            },
-            'default': {
-                areaName: "your area",
-                risks: [
-                    {
-                        title: "General Wellness",
-                        risk: "Standard",
-                        details: "Remember to stay hydrated, get regular exercise, and maintain a balanced diet for optimal health."
-                    }
-                ]
-            }
+            '100': { areaName: "New York City Area", risks: [{ title: "High Pollen Count", risk: "Increased", details: "Spring and fall may bring high pollen counts, increasing allergy and asthma symptoms. Monitor local pollen forecasts." }, { title: "Air Pollution", risk: "Moderate", details: "Urban environments can have higher air pollution. On poor air quality days, consider limiting strenuous outdoor activities." }] },
+            '902': { areaName: "Los Angeles County", risks: [{ title: "High Sun Exposure", risk: "High", details: "This area has significant sun exposure. Use sunscreen and protective clothing to reduce skin damage risk." }, { title: "Wildfire Smoke", risk: "Seasonal", details: "During wildfire season, air quality can be impacted. Stay indoors and use air purifiers when smoke is heavy." }] },
+            'default': { areaName: "your area", risks: [{ title: "General Wellness", risk: "Standard", details: "Remember to stay hydrated, get regular exercise, and maintain a balanced diet for optimal health." }] }
         };
+
+        const localResources = [
+            { name: "Community Food Bank", category: "food", description: "Free groceries and meals for families in need.", address: "123 Main St, Your City", phone: "(555) 123-4567", hours: "Mon-Fri 9AM-5PM", distance: 0.5 },
+            { name: "Housing Assistance Program", category: "housing", description: "Rental assistance and emergency housing support.", address: "456 Oak Ave, Your City", phone: "(555) 234-5678", hours: "Mon-Thu 8AM-6PM", distance: 1.2 },
+            { name: "City Ride Connect", category: "transport", description: "Low-cost transportation for medical appointments.", address: "789 Pine Ln, Your City", phone: "(555) 345-6789", hours: "By appointment", distance: 2.1 },
+            { name: "Downtown Health Clinic", category: "healthcare", description: "Affordable primary care and urgent care services.", address: "101 Center St, Your City", phone: "(555) 456-7890", hours: "Mon-Sat 8AM-8PM", distance: 1.8 }
+        ];
 
         // --- Navigation & Page Management ---
         function showPage(pageId) {
@@ -510,26 +454,25 @@
             if(targetPage) {
                 targetPage.classList.remove('hidden');
             }
-
             const showBottomNav = ['dashboard', 'resources', 'rewards'].includes(pageId);
             document.getElementById('bottomNav').classList.toggle('hidden', !showBottomNav);
-
             document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('text-primary');
+                btn.classList.remove('text-primary', 'font-semibold');
                 btn.classList.add('text-gray-600', 'dark:text-gray-400');
             });
             const activeBtn = document.querySelector(`.nav-btn[data-page="${pageId}"]`);
             if (activeBtn) {
                 activeBtn.classList.remove('text-gray-600', 'dark:text-gray-400');
-                activeBtn.classList.add('text-primary');
+                activeBtn.classList.add('text-primary', 'font-semibold');
             }
-
             currentPage = pageId;
 
-            if (pageId === 'dashboard') {
-                updateDashboard();
+            if (pageId === 'dashboard') { updateDashboard(); }
+            if (pageId === 'resources') { 
+                document.getElementById('resourcesZip').textContent = userData.zipCode || 'N/A';
+                renderResources(); 
             }
-            feather.replace(); // Refresh icons on page change
+            feather.replace();
         }
         
         function updateDashboard() {
@@ -544,23 +487,11 @@
             const chatMessages = document.getElementById('chatMessages');
             const messageDiv = document.createElement('div');
             messageDiv.className = `chat-bubble flex w-full ${isBot ? 'justify-start' : 'justify-end'}`;
-
-            const bubbleClass = isBot 
-                ? 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white rounded-r-lg rounded-bl-lg' 
-                : 'bg-primary text-white rounded-l-lg rounded-br-lg';
-            
-            messageDiv.innerHTML = `
-                <div class="max-w-xs lg:max-w-md px-4 py-3 ${bubbleClass}">
-                    ${isBot ? '<div class="flex items-center space-x-2 mb-2"><div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center shrink-0"><i data-feather="cpu" class="w-4 h-4 text-white"></i></div><span class="text-xs font-medium opacity-80">AI Assistant</span></div>' : ''}
-                    <p class="text-sm">${text}</p>
-                </div>
-            `;
+            const bubbleClass = isBot ? 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white rounded-r-lg rounded-bl-lg' : 'bg-primary text-white rounded-l-lg rounded-br-lg';
+            messageDiv.innerHTML = `<div class="max-w-xs lg:max-w-md px-4 py-3 ${bubbleClass}">${isBot ? '<div class="flex items-center space-x-2 mb-2"><div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center shrink-0"><i data-feather="cpu" class="w-4 h-4 text-white"></i></div><span class="text-xs font-medium opacity-80">AI Assistant</span></div>' : ''}<p class="text-sm">${text}</p></div>`;
             chatMessages.appendChild(messageDiv);
             feather.replace();
-
-            if (hasOptions && options.length > 0) {
-                setTimeout(() => showQuickResponses(options), 500);
-            }
+            if (hasOptions && options.length > 0) { setTimeout(() => showQuickResponses(options), 500); }
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
@@ -568,7 +499,6 @@
             const quickResponses = document.getElementById('quickResponses');
             quickResponses.innerHTML = '';
             quickResponses.classList.remove('hidden');
-            
             options.forEach(option => {
                 const button = document.createElement('button');
                 button.className = 'bg-accent dark:bg-gray-700 hover:bg-blue-200 dark:hover:bg-gray-600 px-4 py-2 rounded-full text-sm font-medium transition-colors';
@@ -581,7 +511,6 @@
         function selectQuickResponse(response) {
             addMessage(response, false);
             document.getElementById('quickResponses').classList.add('hidden');
-
             const currentQuestion = screeningQuestions[currentQuestionIndex];
             if (currentQuestion) {
                 points += currentQuestion.points;
@@ -589,7 +518,6 @@
                 showPointsEarned(currentQuestion.points);
             }
             currentQuestionIndex++;
-
             setTimeout(() => {
                 if (currentQuestionIndex < screeningQuestions.length) {
                     const nextQuestion = screeningQuestions[currentQuestionIndex];
@@ -603,26 +531,18 @@
         function completeScreening() {
             const totalPoints = screeningQuestions.reduce((sum, q) => sum + q.points, 0);
             addMessage(`Excellent! You've completed your health screening. You've earned ${totalPoints} points! 🌟`, true);
-            
             setTimeout(() => {
                 addMessage("I'm now generating a personalized summary based on your location...", true);
-                
                 setTimeout(() => {
                     const summary = generateLocationBasedSummary(userData.zipCode);
                     addMessage(summary, true);
-
                     setTimeout(() => {
                         const dashboardButton = document.createElement('div');
                         dashboardButton.className = 'flex justify-center mt-4';
-                        dashboardButton.innerHTML = `
-                            <button onclick="showPage('dashboard')" class="bg-primary text-white px-6 py-2 rounded-lg font-medium shadow-lg hover:shadow-xl transition-shadow">
-                                View Full Health Summary
-                            </button>
-                        `;
+                        dashboardButton.innerHTML = `<button onclick="showPage('dashboard')" class="bg-primary text-white px-6 py-2 rounded-lg font-medium shadow-lg hover:shadow-xl transition-shadow">View Full Health Summary</button>`;
                         document.getElementById('chatMessages').appendChild(dashboardButton);
                         document.getElementById('chatMessages').scrollTop = document.getElementById('chatMessages').scrollHeight;
                     }, 1000);
-
                 }, 1500);
             }, 1000);
         }
@@ -639,9 +559,7 @@
         function generateLocationBasedSummary(zipCode) {
             const data = getLocationData(zipCode);
             let summaryText = `Based on your location in the <strong>${data.areaName}</strong>, here are some environmental factors to be aware of:<br><br><ul class="list-disc list-inside space-y-2">`;
-            data.risks.forEach(risk => {
-                summaryText += `<li><strong>${risk.title}:</strong> ${risk.details}</li>`;
-            });
+            data.risks.forEach(risk => { summaryText += `<li><strong>${risk.title}:</strong> ${risk.details}</li>`; });
             summaryText += "</ul><br>Please discuss any concerns with your healthcare provider.";
             return summaryText;
         }
@@ -649,32 +567,16 @@
         function updateDashboardSummary(data) {
             const summaryContainer = document.getElementById('healthRiskSummary');
             summaryContainer.innerHTML = ''; 
-
             data.risks.forEach(risk => {
-                const riskLevelMap = {
-                    'Increased': { color: 'yellow', width: '60%' },
-                    'Moderate': { color: 'yellow', width: '60%' },
-                    'High': { color: 'red', width: '85%' },
-                    'Seasonal': { color: 'blue', width: '50%' },
-                    'Standard': { color: 'green', width: '25%' },
-                };
+                const riskLevelMap = { 'Increased': { color: 'yellow', width: '60%' }, 'Moderate': { color: 'yellow', width: '60%' }, 'High': { color: 'red', width: '85%' }, 'Seasonal': { color: 'blue', width: '50%' }, 'Standard': { color: 'green', width: '25%' } };
                 const level = riskLevelMap[risk.risk] || riskLevelMap['Standard'];
-
                 const riskElement = document.createElement('div');
                 riskElement.className = 'border-l-4 rounded-r-md p-3';
                 riskElement.classList.add(`border-${level.color}-500`, `bg-${level.color}-50`, `dark:bg-gray-800`);
-
-                riskElement.innerHTML = `
-                     <div class="flex justify-between items-center mb-1">
-                        <h4 class="font-semibold text-sm text-gray-800 dark:text-white">${risk.title}</h4>
-                        <span class="text-xs font-medium text-${level.color}-600 dark:text-${level.color}-400 ml-3">${risk.risk}</span>
-                     </div>
-                     <p class="text-xs text-gray-600 dark:text-gray-400">${risk.details}</p>
-                `;
+                riskElement.innerHTML = `<div class="flex justify-between items-center mb-1"><h4 class="font-semibold text-sm text-gray-800 dark:text-white">${risk.title}</h4><span class="text-xs font-medium text-${level.color}-600 dark:text-${level.color}-400 ml-3">${risk.risk}</span></div><p class="text-xs text-gray-600 dark:text-gray-400">${risk.details}</p>`;
                 summaryContainer.appendChild(riskElement);
             });
         }
-
 
         // --- Points & UI Updates ---
         function showPointsEarned(earnedPoints) {
@@ -683,49 +585,85 @@
             notification.style.animation = 'fadeInOut 2s ease-in-out';
             notification.innerHTML = `+${earnedPoints} points! 🌟`;
             document.body.appendChild(notification);
-            
             setTimeout(() => notification.remove(), 2000);
         }
 
         function updatePointsDisplay() {
-            document.getElementById('pointsDisplay').innerHTML = `
-                <i data-feather="star" class="w-4 h-4 text-amber-600"></i>
-                <span class="text-sm font-medium text-amber-700 dark:text-amber-300">${points} pts</span>
-            `;
+            document.getElementById('pointsDisplay').innerHTML = `<i data-feather="star" class="w-4 h-4 text-amber-600"></i><span class="text-sm font-medium text-amber-700 dark:text-amber-300">${points} pts</span>`;
             feather.replace();
-            
             const dashboardPoints = document.getElementById('dashboardPoints');
             if(dashboardPoints) {
-                // Update the points and progress bar
                 dashboardPoints.textContent = `${points} / 200 points`;
                 const pointsBar = document.getElementById('dashboardPointsBar');
                 pointsBar.style.width = `${Math.min(100, (points / 200) * 100)}%`;
-                
-                // Find the reward status element using the ID from the HTML
                 const rewardStatusText = document.getElementById('rewardStatusText');
-
-                // update text based on points
-                if (points >= 200) {
-                    rewardStatusText.textContent = 'Reward Unlocked!';
-                } else {
-                    rewardStatusText.textContent = 'Next reward: $10 grocery voucher';
-                }
+                if (!rewardStatusText) { console.error("DEBUG: Could not find element with id='rewardStatusText'. Check the HTML."); return; }
+                if (points >= 200) { rewardStatusText.textContent = 'Reward Unlocked!'; } 
+                else { rewardStatusText.textContent = 'Next reward: $10 grocery voucher'; }
             }
+        }
+
+        // --- NEW: Resource Page Functions ---
+        function renderResources(filter = 'all') {
+            const resourceList = document.getElementById('resourceList');
+            resourceList.innerHTML = '';
+            
+            const filteredResources = localResources.filter(resource => filter === 'all' || resource.category === filter);
+
+            if (filteredResources.length === 0) {
+                resourceList.innerHTML = `<p class="text-center text-gray-500 dark:text-gray-400">No resources found for this category.</p>`;
+                return;
+            }
+
+            filteredResources.forEach(resource => {
+                const card = document.createElement('div');
+                card.className = 'bg-white dark:bg-gray-800 rounded-lg p-5 shadow-sm border border-gray-200 dark:border-gray-700';
+                
+                const categoryColors = {
+                    food: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
+                    housing: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
+                    transport: 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200',
+                    healthcare: 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200',
+                };
+
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="font-bold text-lg">${resource.name}</h3>
+                        <span class="text-xs font-medium px-2 py-1 rounded-full ${categoryColors[resource.category] || ''}">${resource.category}</span>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">${resource.description}</p>
+                    <div class="space-y-3 text-sm text-gray-800 dark:text-gray-200">
+                        <div class="flex items-center">
+                            <i data-feather="map-pin" class="w-4 h-4 mr-3 text-gray-500"></i>
+                            <span>${resource.address}</span>
+                            <span class="ml-auto text-primary font-medium">${resource.distance} miles</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="phone" class="w-4 h-4 mr-3 text-gray-500"></i>
+                            <span>${resource.phone}</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="clock" class="w-4 h-4 mr-3 text-gray-500"></i>
+                            <span>${resource.hours}</span>
+                        </div>
+                    </div>
+                    <div class="mt-5 grid grid-cols-2 gap-3">
+                        <button class="w-full bg-primary text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-opacity-90">Get Directions</button>
+                        <button class="w-full bg-gray-100 dark:bg-gray-700 py-2.5 rounded-lg font-semibold text-sm hover:bg-gray-200 dark:hover:bg-gray-600">Call</button>
+                    </div>
+                `;
+                resourceList.appendChild(card);
+            });
+            feather.replace();
         }
 
         // --- Event Listeners ---
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('startBtn').addEventListener('click', () => showPage('onboarding'));
-
             document.getElementById('continueOnboarding').addEventListener('click', () => {
                 const firstName = document.getElementById('firstName').value.trim();
                 const zipCode = document.getElementById('zipCode').value.trim();
-                
-                if (!firstName || !zipCode) {
-                    alert("Please fill out all fields.");
-                    return;
-                }
-
+                if (!firstName || !zipCode) { alert("Please fill out all fields."); return; }
                 userData.firstName = firstName;
                 userData.zipCode = zipCode;
                 document.getElementById('welcomeName').textContent = userData.firstName;
@@ -741,7 +679,6 @@
             });
 
             document.getElementById('acceptConsent').addEventListener('click', () => showPage('welcome'));
-
             document.getElementById('startScreening').addEventListener('click', () => {
                 showPage('chat');
                 currentQuestionIndex = 0; 
@@ -755,7 +692,6 @@
                 btn.addEventListener('click', () => {
                     const page = btn.dataset.page;
                     if(page === 'chat') {
-                        // Special handling to restart chat if accessed from nav
                         showPage('chat');
                         currentQuestionIndex = 0; 
                         document.getElementById('chatMessages').innerHTML = '';
@@ -768,6 +704,17 @@
 
             document.getElementById('resourcesBtn').addEventListener('click', () => showPage('resources'));
             document.getElementById('rewardsBtn').addEventListener('click', () => showPage('rewards'));
+            document.getElementById('resourcesBackBtn').addEventListener('click', () => showPage('dashboard'));
+
+            // Resource filter logic
+            const filterContainer = document.getElementById('resourceFilters');
+            filterContainer.addEventListener('click', (e) => {
+                if (e.target.classList.contains('resource-filter-btn')) {
+                    filterContainer.querySelector('.is-active').classList.remove('is-active');
+                    e.target.classList.add('is-active');
+                    renderResources(e.target.dataset.category);
+                }
+            });
 
             // --- Initialize App ---
             showPage('landing');
@@ -776,13 +723,34 @@
     </script>
      <style>
         @keyframes fadeInOut {
-            0% { opacity: 0; transform: translate(-50%, -20px); }
-            20% { opacity: 1; transform: translate(-50%, 0); }
-            80% { opacity: 1; transform: translate(-50%, 0); }
-            100% { opacity: 0; transform: translate(-50%, -20px); }
+            0% { opacity: 0; transform: translate(-50%, -20px); } 20% { opacity: 1; transform: translate(-50%, 0); }
+            80% { opacity: 1; transform: translate(-50%, 0); } 100% { opacity: 0; transform: translate(-50%, -20px); }
         }
-        .h-screen-minus-nav {
-             height: calc(100vh - 61px);
+        .h-screen-minus-nav { height: calc(100vh - 61px); }
+        .resource-filter-btn {
+            padding: 8px 16px;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            background-color: #F3F4F6; /* bg-gray-100 */
+            color: #374151; /* text-gray-700 */
+            border-bottom: 2px solid transparent;
+        }
+        .dark .resource-filter-btn {
+            background-color: #374151; /* dark:bg-gray-700 */
+            color: #D1D5DB; /* dark:text-gray-300 */
+        }
+        .resource-filter-btn.is-active {
+            background-color: #5D5CDE; /* bg-primary */
+            color: white;
+        }
+        .dark .resource-filter-btn.is-active {
+            background-color: #5D5CDE; /* dark:bg-primary */
+            color: white;
+        }
+        .nav-btn.text-primary > i, .nav-btn.text-primary > span {
+            color: #5D5CDE; /* primary color */
         }
     </style>
 </body>
